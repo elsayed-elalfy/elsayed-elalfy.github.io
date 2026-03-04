@@ -1,0 +1,130 @@
+<!-- =========================
+home.html  (PARTIAL, injected into <main id="app"> by app.js)
+Do NOT include <html> / <head> / <body> here.
+========================= -->
+
+<section id="home" class="section">
+
+  <!-- TOP ROW: LEFT HERO + RIGHT HIGHLIGHTS -->
+  <div class="homeHero__row">
+
+    <!-- LEFT: HERO (you can edit text freely) -->
+    <div class="card heroBox" aria-label="Hero">
+      <p class="kicker">Professor — Information &amp; Computer Science, KFUPM</p>
+
+      <h1 class="h1">Research in Trustworthy and Deployable Artificial Intelligence</h1>
+
+      <p class="lead">
+        I develop reliable, privacy-aware, and secure intelligent systems that operate effectively under real-world constraints,
+        with emphasis on robust learning, vision intelligence, and intelligent secure analytics.
+      </p>
+
+      <div class="pillRow" aria-label="Research tags">
+        <span class="pill">Trustworthy AI</span>
+        <span class="pill">Privacy-Preserving Learning</span>
+        <span class="pill">Robust Vision</span>
+        <span class="pill">Intelligent Secure Systems</span>
+        <span class="pill">Optimization Intelligence</span>
+      </div>
+
+      <div class="actions">
+        <a class="btn btn--primary" href="#research/overview" data-route="research">Explore Research</a>
+        <a class="btn" href="assets/cv.pdf" target="_blank" rel="noopener">Download CV</a>
+        <a class="btn" href="#service/editorial" data-route="service">Editorial</a>
+      </div>
+
+      <div class="miniLinks" aria-label="Profile links">
+        <a class="miniLink" href="https://pure.kfupm.edu.sa/en/persons/elsayed-elalfy/" target="_blank" rel="noopener">PURE</a>
+        <a class="miniLink" href="https://scholar.google.com/citations?hl=en&user=2a51Yt8AAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener">Scholar</a>
+        <a class="miniLink" href="https://orcid.org/0000-0001-6279-9776" target="_blank" rel="noopener">ORCID</a>
+        <a class="miniLink" href="#" aria-disabled="true" title="Add your Scopus link">Scopus</a>
+      </div>
+    </div>
+
+    <!-- RIGHT: PROFILE HEADER + HIGHLIGHTS (rotating) -->
+    <aside class="card sideBox" aria-label="Highlights">
+
+      <!-- Profile header (compact, polished) -->
+      <div class="profileHeader">
+        <img class="profilePhoto" src="assets/portrait.jpg" alt="Prof. El-Sayed M. El-Alfy" loading="lazy">
+        <div class="profileInfo">
+          <div class="profileName">Prof. El-Sayed M. El-Alfy</div>
+          <div class="profileMeta">
+            Professor<br>
+            Department of Information &amp; Computer Science<br>
+            King Fahd University of Petroleum &amp; Minerals<br>
+            Dhahran, Saudi Arabia
+          </div>
+          <a class="profileEmail" href="mailto:alfy@kfupm.edu.sa">alfy@kfupm.edu.sa</a>
+        </div>
+      </div>
+
+      <!-- Highlights rotator -->
+      <div class="hlBox">
+        <div class="hlHead">
+          <div class="hlTitle">Highlights</div>
+          <span class="hlTag">Selected</span>
+        </div>
+
+        <div class="hlItem">
+          <img id="hlImg" class="hlImg" src="assets/highlights/h1.jpg" alt="Highlight image" loading="lazy">
+          <div class="hlTextWrap">
+            <div id="hlItemTitle" class="hlItemTitle">Fellow — SDAIA–KFUPM Joint AI Research Center</div>
+            <div id="hlItemText" class="hlItemText">Research leadership and engagement in national AI initiatives.</div>
+            <a id="hlItemLink" class="hlItemLink" href="https://pure.kfupm.edu.sa/en/persons/elsayed-elalfy/" target="_blank" rel="noopener">Details</a>
+          </div>
+        </div>
+
+        <div class="hlDots" aria-label="Highlights navigation">
+          <button class="dot is-active" data-i="0" aria-label="Highlight 1"></button>
+          <button class="dot" data-i="1" aria-label="Highlight 2"></button>
+          <button class="dot" data-i="2" aria-label="Highlight 3"></button>
+        </div>
+      </div>
+
+    </aside>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section">
+  <div class="card">
+    <h2 class="h2">About</h2>
+    <p class="muted">
+      El-Sayed M. El-Alfy is a Professor in the Department of Information and Computer Science at KFUPM.
+      His work focuses on deployable and privacy-preserving intelligent systems spanning trustworthy learning,
+      robust vision, secure analytics, and optimization-based intelligence.
+    </p>
+  </div>
+</section>
+
+<!-- LOWER ROW (same wireframe: 3 boxes) -->
+<section class="section">
+  <div class="homeLower__row">
+    <div class="card">
+      <h2 class="h2">Highlights</h2>
+      <p class="muted">
+        Selected achievements, leadership roles, and research direction summaries.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2 class="h2">Prospective Students</h2>
+      <p class="muted">
+        MSc/PhD supervision in rigorous, publication-oriented research. Email with CV + transcripts + brief research interests.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2 class="h2">Quick Links</h2>
+      <p class="links">
+        <a href="#publications/overview" data-route="publications">Publications</a>
+        <span class="sep">·</span>
+        <a href="#research/projects" data-route="research">Projects</a>
+        <span class="sep">·</span>
+        <a href="#teaching/courses" data-route="teaching">Courses</a>
+      </p>
+    </div>
+  </div>
+</section>
