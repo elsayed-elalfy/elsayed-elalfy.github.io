@@ -370,3 +370,8 @@ body{
   color: var(--muted);
   background: rgba(255,255,255,0.7);
 }
+
+
+/*********************/
+.disabled-section { display: none; }
+/*********************/
