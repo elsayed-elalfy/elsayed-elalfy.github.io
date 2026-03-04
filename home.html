@@ -1,15 +1,10 @@
-<!-- =========================
-home.html  (PARTIAL, injected into <main id="app"> by app.js)
-Do NOT include <html> / <head> / <body> here.
-========================= -->
-
 <section id="home" class="section">
 
-  <!-- TOP ROW: LEFT HERO + RIGHT HIGHLIGHTS -->
+  <!-- TOP: left hero + right highlights -->
   <div class="homeHero__row">
 
-    <!-- LEFT: HERO (you can edit text freely) -->
-    <div class="card heroBox" aria-label="Hero">
+    <!-- LEFT HERO -->
+    <div class="card">
       <p class="kicker">Professor — Information &amp; Computer Science, KFUPM</p>
 
       <h1 class="h1">Research in Trustworthy and Deployable Artificial Intelligence</h1>
@@ -28,9 +23,9 @@ Do NOT include <html> / <head> / <body> here.
       </div>
 
       <div class="actions">
-        <a class="btn btn--primary" href="#research/overview" data-route="research">Explore Research</a>
+        <a class="btn btn--primary" href="#research" data-route="research">Explore Research</a>
         <a class="btn" href="assets/cv.pdf" target="_blank" rel="noopener">Download CV</a>
-        <a class="btn" href="#service/editorial" data-route="service">Editorial</a>
+        <a class="btn" href="#service" data-route="service">Editorial</a>
       </div>
 
       <div class="miniLinks" aria-label="Profile links">
@@ -41,13 +36,12 @@ Do NOT include <html> / <head> / <body> here.
       </div>
     </div>
 
-    <!-- RIGHT: PROFILE HEADER + HIGHLIGHTS (rotating) -->
-    <aside class="card sideBox" aria-label="Highlights">
+    <!-- RIGHT HIGHLIGHTS -->
+    <aside class="card" aria-label="Highlights">
 
-      <!-- Profile header (compact, polished) -->
       <div class="profileHeader">
         <img class="profilePhoto" src="assets/portrait.jpg" alt="Prof. El-Sayed M. El-Alfy" loading="lazy">
-        <div class="profileInfo">
+        <div>
           <div class="profileName">Prof. El-Sayed M. El-Alfy</div>
           <div class="profileMeta">
             Professor<br>
@@ -59,7 +53,6 @@ Do NOT include <html> / <head> / <body> here.
         </div>
       </div>
 
-      <!-- Highlights rotator -->
       <div class="hlBox">
         <div class="hlHead">
           <div class="hlTitle">Highlights</div>
@@ -68,7 +61,7 @@ Do NOT include <html> / <head> / <body> here.
 
         <div class="hlItem">
           <img id="hlImg" class="hlImg" src="assets/highlights/h1.jpg" alt="Highlight image" loading="lazy">
-          <div class="hlTextWrap">
+          <div>
             <div id="hlItemTitle" class="hlItemTitle">Fellow — SDAIA–KFUPM Joint AI Research Center</div>
             <div id="hlItemText" class="hlItemText">Research leadership and engagement in national AI initiatives.</div>
             <a id="hlItemLink" class="hlItemLink" href="https://pure.kfupm.edu.sa/en/persons/elsayed-elalfy/" target="_blank" rel="noopener">Details</a>
@@ -87,7 +80,6 @@ Do NOT include <html> / <head> / <body> here.
   </div>
 </section>
 
-<!-- ABOUT -->
 <section class="section">
   <div class="card">
     <h2 class="h2">About</h2>
@@ -99,31 +91,26 @@ Do NOT include <html> / <head> / <body> here.
   </div>
 </section>
 
-<!-- LOWER ROW (same wireframe: 3 boxes) -->
 <section class="section">
   <div class="homeLower__row">
     <div class="card">
       <h2 class="h2">Highlights</h2>
-      <p class="muted">
-        Selected achievements, leadership roles, and research direction summaries.
-      </p>
+      <p class="muted">Selected achievements, leadership roles, and research direction summaries.</p>
     </div>
 
     <div class="card">
       <h2 class="h2">Prospective Students</h2>
-      <p class="muted">
-        MSc/PhD supervision in rigorous, publication-oriented research. Email with CV + transcripts + brief research interests.
-      </p>
+      <p class="muted">MSc/PhD supervision in AI/ML/Vision/Secure Analytics. Email with CV + transcripts + research interests.</p>
     </div>
 
     <div class="card">
       <h2 class="h2">Quick Links</h2>
       <p class="links">
-        <a href="#publications/overview" data-route="publications">Publications</a>
+        <a href="#publications" data-route="publications">Publications</a>
         <span class="sep">·</span>
-        <a href="#research/projects" data-route="research">Projects</a>
+        <a href="#research" data-route="research">Projects</a>
         <span class="sep">·</span>
-        <a href="#teaching/courses" data-route="teaching">Courses</a>
+        <a href="#teaching" data-route="teaching">Courses</a>
       </p>
     </div>
   </div>
