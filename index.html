@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Prof. El-Sayed M. El-Alfy | KFUPM</title>
+
+  <meta
+    name="description"
+    content="Prof. El-Sayed M. El-Alfy — Professor of Computer Science and Engineering at KFUPM. Trustworthy and privacy-aware AI, robust vision systems, intelligent secure systems."
+  />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="topbar__inner">
+      <a class="brand" href="#home" data-route="home" aria-label="Go to Home">
+        <span class="brand__mark" aria-hidden="true"></span>
+        <span class="brand__text">Prof. El-Sayed M. El-Alfy</span>
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="nav nav--desktop" aria-label="Primary navigation">
+        <a class="nav__link" href="#home" data-route="home">Home</a>
+
+        <div class="navItem">
+          <a class="nav__link nav__link--parent" href="#research/overview" data-route="research" aria-haspopup="true">
+            Research <span class="caret" aria-hidden="true">▾</span>
+          </a>
+          <div class="dropdown" role="menu" aria-label="Research submenu">
+            <a href="#research/overview" data-route="research" role="menuitem">Overview</a>
+            <a href="#research/themes" data-route="research" role="menuitem">Core Directions</a>
+            <a href="#research/projects" data-route="research" role="menuitem">Selected Projects</a>
+            <a href="#research/collaboration" data-route="research" role="menuitem">Collaboration</a>
+          </div>
+        </div>
+
+        <a class="nav__link" href="#publications/overview" data-route="publications">Publications</a>
+
+        <div class="navItem">
+          <a class="nav__link nav__link--parent" href="#teaching/courses" data-route="teaching" aria-haspopup="true">
+            Teaching <span class="caret" aria-hidden="true">▾</span>
+          </a>
+          <div class="dropdown" role="menu" aria-label="Teaching submenu">
+            <a href="#teaching/courses" data-route="teaching" role="menuitem">Courses</a>
+            <a href="#teaching/supervision" data-route="teaching" role="menuitem">Graduate Supervision</a>
+            <a href="#teaching/resources" data-route="teaching" role="menuitem">Resources</a>
+          </div>
+        </div>
+
+        <div class="navItem">
+          <a class="nav__link nav__link--parent" href="#service/overview" data-route="service" aria-haspopup="true">
+            Service <span class="caret" aria-hidden="true">▾</span>
+          </a>
+          <div class="dropdown" role="menu" aria-label="Service submenu">
+            <a href="#service/overview" data-route="service" role="menuitem">Overview</a>
+            <a href="#service/editorial" data-route="service" role="menuitem">Editorial Service</a>
+            <a href="#service/committees" data-route="service" role="menuitem">Committees</a>
+            <a href="#service/talks" data-route="service" role="menuitem">Talks & Events</a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Mobile menu button -->
+      <button id="menuBtn" class="iconBtn" aria-label="Open menu" aria-expanded="false">
+        <span aria-hidden="true">☰</span>
+      </button>
+    </div>
+
+    <!-- Mobile compressed menu -->
+    <div id="mobileMenu" class="mobileMenu" aria-hidden="true">
+      <nav class="nav nav--mobile" aria-label="Mobile navigation">
+        <a class="nav__link" href="#home" data-route="home">Home</a>
+
+        <details class="mobileGroup">
+          <summary>Research <span aria-hidden="true">▾</span></summary>
+          <a class="mobileSubLink" href="#research/overview" data-route="research">Overview</a>
+          <a class="mobileSubLink" href="#research/themes" data-route="research">Core Directions</a>
+          <a class="mobileSubLink" href="#research/projects" data-route="research">Selected Projects</a>
+          <a class="mobileSubLink" href="#research/collaboration" data-route="research">Collaboration</a>
+        </details>
+
+        <a class="nav__link" href="#publications/overview" data-route="publications">Publications</a>
+
+        <details class="mobileGroup">
+          <summary>Teaching <span aria-hidden="true">▾</span></summary>
+          <a class="mobileSubLink" href="#teaching/courses" data-route="teaching">Courses</a>
+          <a class="mobileSubLink" href="#teaching/supervision" data-route="teaching">Graduate Supervision</a>
+          <a class="mobileSubLink" href="#teaching/resources" data-route="teaching">Resources</a>
+        </details>
+
+        <details class="mobileGroup">
+          <summary>Service <span aria-hidden="true">▾</span></summary>
+          <a class="mobileSubLink" href="#service/overview" data-route="service">Overview</a>
+          <a class="mobileSubLink" href="#service/editorial" data-route="service">Editorial Service</a>
+          <a class="mobileSubLink" href="#service/committees" data-route="service">Committees</a>
+          <a class="mobileSubLink" href="#service/talks" data-route="service">Talks & Events</a>
+        </details>
+      </nav>
+    </div>
+  </header>
+
+  <main class="shell" id="app" tabindex="-1" aria-live="polite">
+
+    <!-- SECTION 1 — HERO (wireframe: portrait left, positioning right) -->
+    <section id="home" class="section">
+      <div class="grid grid--2">
+        <div class="card">
+          <!-- Replace with your actual portrait path -->
+          <img
+            class="media media--portrait"
+            src="assets/portrait.jpg"
+            alt="Portrait of Prof. El-Sayed M. El-Alfy"
+                      />
+          
+         <!--   loading="lazy" -->
+          
+
+        </div>
+
+        <div class="card card--hero">
+          <h1 class="h1">AI, Machine Learning, and Trustworthy Intelligent Systems</h1>
+
+          <p class="lead">
+            I am a Professor of Information &amp; Computer Science at King Fahd University of Petroleum &amp; Minerals (KFUPM).
+            My work advances trustworthy, privacy-aware, and deployable intelligent systems operating under real-world constraints.
+          </p>
+
+          <div class="actions">
+            <a class="btn btn--primary" href="#research/overview" data-route="research">Research</a>
+            <a class="btn" href="#publications/overview" data-route="publications">Publications</a>
+            <a class="btn" href="#teaching/courses" data-route="teaching">Teaching</a>
+            <a class="btn" href="#service/overview" data-route="service">Service</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 2 — PROFILE STRIP (wireframe: thin band badges/links) -->
+      <div class="strip" aria-label="Professional profile highlights">
+        <div class="strip__items">
+          <span class="badge">Professor, ICS · KFUPM</span>
+          <span class="badge">Fellow — SDAIA–KFUPM Joint AI Research Center</span>
+          <span class="badge">Senior Research Scholar — IRC for Intelligent Secure Systems</span>
+
+          <span class="sep" aria-hidden="true">•</span>
+
+          <a class="strip__link" href="https://scholar.google.com/citations?hl=en&user=2a51Yt8AAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener">Google Scholar</a>
+          <a class="strip__link" href="https://orcid.org/0000-0001-6279-9776" target="_blank" rel="noopener">ORCID</a>
+          <a class="strip__link" href="https://pure.kfupm.edu.sa/en/persons/elsayed-elalfy/" target="_blank" rel="noopener">KFUPM PURE</a>
+          <a class="strip__link" href="https://ics.kfupm.edu.sa/people/faculty/faculty-details/dr.-el-sayed-el-alfy" target="_blank" rel="noopener">ICS Profile</a>
+          <a class="strip__link" href="assets/cv.pdf" target="_blank" rel="noopener">CV</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3 — RESEARCH (wireframe: philosophy + two columns) -->
+    <section id="research/overview" class="section">
+      <header class="section__head">
+        <h2 class="h2">Research</h2>
+        <p class="muted">
+          My research investigates methodological and applied aspects of artificial intelligence with emphasis on reliability,
+          robustness, privacy, and secure deployment.
+        </p>
+      </header>
+
+      <div class="grid grid--2">
+        <div class="card" id="research/themes">
+          <h3 class="h3">Core Directions</h3>
+          <ul class="list">
+            <li>Trustworthy and privacy-aware learning</li>
+            <li>Robust computer vision systems</li>
+            <li>AI for security and critical infrastructure</li>
+            <li>Bio-inspired and optimization-based intelligence</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3 class="h3">Application Contexts</h3>
+          <ul class="list">
+            <li>Intelligent transportation and driver monitoring</li>
+            <li>Industrial IoT and cyber-physical systems</li>
+            <li>Secure analytics and anomaly detection</li>
+            <li>Smart and sustainable environments</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card" id="research/projects">
+        <h3 class="h3">Selected Projects</h3>
+        <ul class="list list--tight">
+          <li><strong>Privacy-preserving learning</strong> — federated and distributed models under practical constraints.</li>
+          <li><strong>Robust vision intelligence</strong> — spatiotemporal modeling for real-world variability and uncertainty.</li>
+          <li><strong>Intelligent secure systems</strong> — analytics for cybersecurity and mission-critical environments.</li>
+          <li><strong>Optimization-based intelligence</strong> — swarm and nature-inspired methods for complex decisions.</li>
+        </ul>
+        <p class="muted small">
+          (Replace these with your lab’s specific project titles and short one-line descriptors.)
+        </p>
+      </div>
+
+      <div class="card" id="research/collaboration">
+        <h3 class="h3">Collaboration</h3>
+        <p>
+          I welcome research collaboration with academic and industrial partners in areas aligned with trustworthy AI, secure analytics,
+          robust vision systems, and optimization-based intelligence.
+        </p>
+        <div class="actions">
+          <a class="btn" href="mailto:alfy@kfupm.edu.sa">Contact</a>
+          <a class="btn" href="#service/talks" data-route="service">Talks &amp; Events</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4 — SELECTED HIGHLIGHTS (wireframe: 4 elite lines, no research redundancy) -->
+    <section class="section">
+      <header class="section__head">
+        <h2 class="h2">Selected Highlights</h2>
+      </header>
+
+      <div class="card">
+        <ul class="list">
+          <li>Fellow, SDAIA–KFUPM Joint AI Research Center; Senior Research Scholar, IRC for Intelligent Secure Systems.</li>
+          <li>Principal Investigator of nationally supported research initiatives.</li>
+          <li>Graduate research mentorship across MSc and PhD programs.</li>
+          <li>Editorial and professional service to IEEE journals and international conferences.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SECTION 5 — GLOBAL ENGAGEMENT (wireframe: 2x3 photo grid with captions) -->
+    <section class="section" aria-label="Global academic engagement and leadership">
+      <header class="section__head">
+        <h2 class="h2">Global Academic Engagement &amp; Leadership</h2>
+        <p class="muted">A concise snapshot of scholarly activity, mentorship, and institutional engagement.</p>
+      </header>
+
+      <div class="grid grid--3">
+        <!-- Replace image paths + captions with your real photos -->
+        <figure class="card figure">
+          <img class="media" src="assets/engagement/keynote.jpg" alt="Keynote address at an international conference" loading="lazy" />
+          <figcaption class="small">Keynote Address — International Conference</figcaption>
+        </figure>
+
+        <figure class="card figure">
+          <img class="media" src="assets/engagement/award.jpg" alt="Award recognition ceremony" loading="lazy" />
+          <figcaption class="small">Award Recognition — Research/Service</figcaption>
+        </figure>
+
+        <figure class="card figure">
+          <img class="media" src="assets/engagement/panel.jpg" alt="Panel discussion at a forum or conference" loading="lazy" />
+          <figcaption class="small">Panelist — AI &amp; Digital Transformation Forum</figcaption>
+        </figure>
+
+        <figure class="card figure">
+          <img class="media" src="assets/engagement/phd-defense.jpg" alt="PhD dissertation defense supervision" loading="lazy" />
+          <figcaption class="small">PhD Dissertation Defense — Supervision</figcaption>
+        </figure>
+
+        <figure class="card figure">
+          <img class="media" src="assets/engagement/lab-meeting.jpg" alt="Research group meeting" loading="lazy" />
+          <figcaption class="small">Research Group Meeting — Mentorship</figcaption>
+        </figure>
+
+        <figure class="card figure">
+          <img class="media" src="assets/engagement/collaboration.jpg" alt="Research collaboration meeting" loading="lazy" />
+          <figcaption class="small">Research Collaboration — Visiting Scholars</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- SECTION 6 — GRADUATE STUDENTS (wireframe: recruitment CTA) -->
+    <section id="teaching/supervision" class="section">
+      <header class="section__head">
+        <h2 class="h2">Graduate Research Opportunities</h2>
+        <p class="muted">
+          I welcome motivated MSc and PhD students interested in rigorous research aligned with my research program.
+        </p>
+      </header>
+
+      <div class="grid grid--2">
+        <div class="card">
+          <h3 class="h3">What I Look For</h3>
+          <ul class="list">
+            <li>Strong background in mathematics, algorithms, and programming</li>
+            <li>Proficiency with Python and modern ML frameworks</li>
+            <li>Commitment to research writing and publication</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3 class="h3">How to Apply</h3>
+          <p class="muted">
+            Please email your CV, transcripts, and a brief research statement describing your preparation and interests.
+          </p>
+          <div class="actions">
+            <a class="btn btn--primary" href="mailto:alfy@kfupm.edu.sa?subject=Prospective%20Graduate%20Student%20Inquiry">
+              Email Prof. El-Alfy
+            </a>
+            <a class="btn" href="#teaching/courses" data-route="teaching">Courses</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Minimal anchors to match nav (content can be filled later) -->
+    <section id="publications/overview" class="section">
+      <header class="section__head">
+        <h2 class="h2">Publications</h2>
+        <p class="muted">
+          For the most up-to-date list, please see Google Scholar and KFUPM PURE.
+        </p>
+      </header>
+      <div class="card">
+        <div class="actions">
+          <a class="btn btn--primary" href="https://scholar.google.com/citations?hl=en&user=2a51Yt8AAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener">
+            Google Scholar (Latest)
+          </a>
+          <a class="btn" href="https://pure.kfupm.edu.sa/en/persons/elsayed-elalfy/" target="_blank" rel="noopener">
+            KFUPM PURE
+          </a>
+          <a class="btn" href="https://www.researchgate.net/profile/El-Sayed-El-Alfy-2" target="_blank" rel="noopener">
+            ResearchGate
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="teaching/courses" class="section">
+      <header class="section__head">
+        <h2 class="h2">Teaching</h2>
+        <p class="muted">Courses, supervision, and learning resources.</p>
+      </header>
+      <div class="grid grid--2">
+        <div class="card">
+          <h3 class="h3">Courses</h3>
+          <p class="muted small">(Add current and recent course titles here.)</p>
+        </div>
+        <div class="card" id="teaching/resources">
+          <h3 class="h3">Resources</h3>
+          <p class="muted small">(Link slides, reading lists, and lab guidelines here.)</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="service/overview" class="section">
+      <header class="section__head">
+        <h2 class="h2">Service</h2>
+        <p class="muted">Editorial, committee, and professional contributions.</p>
+      </header>
+      <div class="grid grid--2">
+        <div class="card" id="service/editorial">
+          <h3 class="h3">Editorial Service</h3>
+          <p class="muted small">(List selected journal/editorial roles.)</p>
+        </div>
+        <div class="card" id="service/committees">
+          <h3 class="h3">Committees</h3>
+          <p class="muted small">(List selected program committees, accreditation roles, panels.)</p>
+        </div>
+      </div>
+
+      <div class="card" id="service/talks">
+        <h3 class="h3">Talks &amp; Events</h3>
+        <p class="muted small">(Add selected keynotes, invited talks, panels, and workshops.)</p>
+      </div>
+
+      <!-- SECTION 7 — FOOTER LINKS (wireframe: minimalist) -->
+      <div class="strip strip--footer" aria-label="Quick contact links">
+        <div class="strip__items">
+          <a class="strip__link" href="mailto:alfy@kfupm.edu.sa">Email</a>
+          <span class="sep" aria-hidden="true">•</span>
+          <a class="strip__link" href="https://www.linkedin.com/in/dr-el-alfy-kfupm/" target="_blank" rel="noopener">LinkedIn</a>
+          <span class="sep" aria-hidden="true">•</span>
+          <a class="strip__link" href="https://orcid.org/0000-0001-6279-9776" target="_blank" rel="noopener">ORCID</a>
+          <span class="sep" aria-hidden="true">•</span>
+          <a class="strip__link" href="https://ics.kfupm.edu.sa/people/faculty/faculty-details/dr.-el-sayed-el-alfy" target="_blank" rel="noopener">ICS Profile</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    © <span id="year"></span> Prof. El-Sayed M. El-Alfy · King Fahd University of Petroleum &amp; Minerals (KFUPM)
+  </footer>
+
+<!--  <script src="app.js"></script >  -->
+  
+</body>
+</html>
