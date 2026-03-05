@@ -387,7 +387,7 @@ Impact
   padding: 18px 20px;
 }
 
-/* Always ONE line */
+/* /* Always ONE line */
 .impactStrip {
   display: flex;
   flex-wrap: wrap;          /* never wrap */
@@ -436,4 +436,43 @@ Impact
   .impactItem + .impactItem { padding-left: 14px; }
   .impactValue { font-size: 1.15rem; }
   .impactLabel { font-size: 0.78rem; }
+} */
+
+
+/* Impact strip inside the hero card (under Download CV) */
+.impactStrip{
+  /* Layout */
+  display: flex;
+  flex-wrap: nowrap;              /* keep on one line */
+  align-items: center;
+  gap: 22px;
+
+  /* Make it feel attached to the hero */
+  width: 100%;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(0,0,0,0.08);
+
+  /* Mobile behavior: horizontal scroll instead of wrapping */
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  padding-bottom: 6px;
+
+  /* Prevent the strip from stretching weirdly */
+  justify-content: flex-start;
+}
+
+/* Each stat should not shrink into unreadable text */
+.impactStrip > *{
+  flex: 0 0 auto;
+}
+
+/* Optional: make scrollbar less visually heavy */
+.impactStrip::-webkit-scrollbar{
+  height: 6px;
+}
+.impactStrip::-webkit-scrollbar-thumb{
+  background: rgba(0,0,0,0.18);
+  border-radius: 999px;
 }
