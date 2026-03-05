@@ -375,6 +375,9 @@ body{
 /*********************/
 .disabled-section { display: none; }
 /*********************/
+
+
+
 /* =========================
    Impact Strip — Refined
 ========================= */
@@ -408,21 +411,22 @@ body{
   background: rgba(0,0,0,0.06);
 }
 
-/* Value (large number) */
+/* ===== VALUE (Number — Strong Emphasis) ===== */
 .impactStrip .v{
-  font-size: 1.35rem;
-  font-weight: 800;
+  font-size: 1.45rem;        /* slightly larger */
+  font-weight: 900;          /* stronger bold */
   line-height: 1;
   letter-spacing: -0.02em;
-  color: #0f172a;   /* slightly deeper tone */
+  color: #0f172a;
+  font-variant-numeric: tabular-nums;
 }
 
-/* Label (small, calm, secondary) */
+/* ===== LABEL (Smaller & Secondary) ===== */
 .impactStrip .k{
-  margin-top: 4px;
-  font-size: 0.72rem;
+  margin-top: 3px;
+  font-size: 0.68rem;        /* reduced size */
   font-weight: 500;
-  color: rgba(0,0,0,0.55);
+  color: rgba(0,0,0,0.50);   /* lighter tone */
   line-height: 1.25;
 }
 
@@ -437,7 +441,6 @@ body{
     gap: 18px 20px;
   }
 
-  /* Remove separators when wrapping */
   .impactStrip > div::after{
     display: none;
   }
@@ -448,6 +451,10 @@ body{
   .impactStrip{
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 16px 18px;
+  }
+
+  .impactStrip .v{
+    font-size: 1.35rem;
   }
 }
 
@@ -463,10 +470,6 @@ body{
   }
 
   .impactStrip .k{
-    font-size: 0.70rem;
+    font-size: 0.66rem;
   }
-}
-
-.impactStrip .v{
-  font-variant-numeric: tabular-nums;
 }
