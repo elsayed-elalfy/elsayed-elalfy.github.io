@@ -435,3 +435,50 @@ body{
   .impactValue { font-size: 1.15rem; }
   .impactLabel { font-size: 0.78rem; }
 }
+
+
+
+
+/*********************** to move strip **************************/
+
+
+/* Compact impact block inside right column */
+.impactCardCompact {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+.impactGridCompact {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px 18px;
+}
+
+.impactGridCompact .impactItem {
+  text-align: left;
+}
+
+.impactGridCompact .impactValue {
+  font-size: 1.1rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.impactGridCompact .impactLabel {
+  font-size: 0.75rem;
+  color: #666;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .impactGridCompact {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .impactGridCompact {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
