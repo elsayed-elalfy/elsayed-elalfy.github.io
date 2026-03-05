@@ -426,6 +426,70 @@ body{
   .impactStat .k{ white-space: normal; }
 }
 
+
+
+
+
+/* =========================
+   Impact section (LEFT, under hero buttons)
+========================= */
+
+.impactSection{
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+.impactGrid{
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px 18px;
+  align-items: start;
+}
+
+.impactItem{
+  min-width: 0;
+}
+
+.impactValue{
+  font-weight: 800;
+  font-size: 1.15rem;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.impactLabel{
+  margin-top: 2px;
+  font-size: 0.75rem;
+  line-height: 1.2;
+  color: rgba(0,0,0,0.62);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* large laptop -> 3 columns */
+@media (max-width: 1100px){
+  .impactGrid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+/* tablet -> 2 columns */
+@media (max-width: 768px){
+  .impactGrid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .impactLabel{ white-space: normal; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
 /* 
 /************ impact strip **************/
 /* Impact Card */
@@ -486,97 +550,4 @@ body{
 
 
 
-/* =========================
-   IMPACT STRIP (Inline under hero buttons)
-========================= */
-
-.impactInline {
-  margin-top: 20px;
-  padding-top: 14px;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
-
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 18px 28px;
-}
-
-/* Each metric block */
-.impactInline .impactStat {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-width: 95px;
-  position: relative;
-}
-
-/* Large number */
-.impactInline .v {
-  font-size: 1.25rem;
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  color: #111827;
-}
-
-/* Label */
-.impactInline .k {
-  font-size: 0.75rem;
-  color: rgba(0, 0, 0, 0.6);
-  line-height: 1.2;
-  margin-top: 2px;
-}
-
-/* Subtle vertical divider between items */
-.impactInline .impactStat:not(:last-child)::after {
-  content: "";
-  position: absolute;
-  right: -14px;
-  top: 8px;
-  height: 24px;
-  width: 1px;
-  background: rgba(0, 0, 0, 0.06);
-}
-
-/* Remove divider when wrapping */
-@media (max-width: 900px) {
-  .impactInline .impactStat::after {
-    display: none;
-  }
-}
-
-/* Tablet adjustment */
-@media (max-width: 768px) {
-  .impactInline {
-    gap: 16px 22px;
-  }
-  .impactInline .v {
-    font-size: 1.15rem;
-  }
-}
-
-/* Mobile refinement */
-@media (max-width: 520px) {
-  .impactInline {
-    gap: 14px 18px;
-  }
-
-  .impactInline .impactStat {
-    min-width: 80px;
-  }
-
-  .impactInline .v {
-    font-size: 1.1rem;
-  }
-
-  .impactInline .k {
-    font-size: 0.72rem;
-  }
-}
-
-.impactInline {
-  background: rgba(255, 255, 255, 0.6);
-  border-radius: 10px;
-  padding: 16px 18px;
-}
 
