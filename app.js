@@ -207,53 +207,6 @@ function initHomeHighlights() {
   });
 }
 
-// added for clic, hover 
-
-
-/* Desktop dropdowns: caret toggles menu, label link navigates */
-function initDesktopDropdowns(){
-  const dropItems = $$(".navItem.hasDrop");
-  if(!dropItems.length) return;
-
-  function closeAll(){
-    dropItems.forEach(li => {
-      li.classList.remove("is-open");
-      const btn = $(".dropBtn", li);
-      if(btn) btn.setAttribute("aria-expanded", "false");
-    });
-  }
-
-  // toggle on caret only
-  dropItems.forEach(li => {
-    const btn = $(".dropBtn", li);
-    if(!btn) return;
-
-    btn.addEventListener("click", (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-
-      const isOpen = li.classList.toggle("is-open");
-      btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
-
-      // close other dropdowns
-      dropItems.forEach(other => {
-        if(other !== li){
-          other.classList.remove("is-open");
-          const ob = $(".dropBtn", other);
-          if(ob) ob.setAttribute("aria-expanded", "false");
-        }
-      });
-    });
-  });
-
-  // close on outside click
-  document.addEventListener("click", () => closeAll());
-
-  // close when navigating via any menu link
-  $$(".navLink, .dropItem").forEach(a => {
-    a.addEventListener("click", () => closeAll());
-  });
-}
 
 
 
@@ -414,4 +367,4 @@ focusMain();
 
 renderRoute();
 
-initDesktopDropdowns();
+
