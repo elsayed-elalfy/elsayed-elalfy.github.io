@@ -428,178 +428,45 @@ body{
 
 
 
-/* Force impact strip to sit under the hero buttons (left card) */
-.impactInline{
+
+/* =========================
+   Impact strip under hero buttons
+========================= */
+
+.impactInline {
   margin-top: 18px;
   padding-top: 14px;
   border-top: 1px solid rgba(0,0,0,0.08);
 
   display: flex;
   flex-wrap: wrap;
-  gap: 14px 26px;
+  gap: 16px 26px;
   align-items: center;
 
-  /* key: take full row inside card */
   width: 100%;
 }
 
-.impactInline .impactStat{
+.impactInline .impactStat {
   display: flex;
   flex-direction: column;
   min-width: 90px;
 }
 
-.impactInline .v{
+.impactInline .v {
   font-size: 1.15rem;
   font-weight: 800;
   line-height: 1.05;
-  letter-spacing: -0.02em;
 }
 
-.impactInline .k{
+.impactInline .k {
   font-size: 0.75rem;
-  color: rgba(0,0,0,0.62);
+  color: rgba(0,0,0,0.6);
   line-height: 1.2;
 }
 
-/* tighter on mobile */
-@media (max-width: 560px){
-  .impactInline{
-    gap: 12px 18px;
-  }
-  .impactInline .impactStat{
-    min-width: 80px;
+/* Responsive tightening */
+@media (max-width: 768px) {
+  .impactInline {
+    gap: 14px 20px;
   }
 }
-
-/* TEMP: hide impact strip if it appears in the right column */
-.homeRightCol .impactInline,
-.rightCol .impactInline,
-.sidebar .impactInline {
-  display: none !important;
-}
-
-
-/* 
-
-/* =========================
-   Impact section (LEFT, under hero buttons)
-========================= */
-
-.impactSection{
-  margin-top: 18px;
-  padding-top: 14px;
-  border-top: 1px solid rgba(0,0,0,0.08);
-}
-
-.impactGrid{
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px 18px;
-  align-items: start;
-}
-
-.impactItem{
-  min-width: 0;
-}
-
-.impactValue{
-  font-weight: 800;
-  font-size: 1.15rem;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-}
-
-.impactLabel{
-  margin-top: 2px;
-  font-size: 0.75rem;
-  line-height: 1.2;
-  color: rgba(0,0,0,0.62);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/* large laptop -> 3 columns */
-@media (max-width: 1100px){
-  .impactGrid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
-}
-
-/* tablet -> 2 columns */
-@media (max-width: 768px){
-  .impactGrid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .impactLabel{ white-space: normal; }
-}
-
-
-
- */
-
-
-
-
-
-
-
-
-/* 
-/************ impact strip **************/
-/* Impact Card */
-.impactCard {
-  padding: 18px 20px;
-}
-
-/* Always ONE line */
-.impactStrip {
-  display: flex;
-  flex-wrap: nowrap;          /* never wrap */
-  align-items: center;
-  justify-content: space-between;
-  gap: 22px;
-
-  overflow-x: auto;           /* mobile: scroll instead of wrapping */
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;
-  padding-bottom: 6px;        /* room for scrollbar if shown */
-}
-
-/* Each metric: compact and non-wrapping */
-.impactItem {
-  flex: 0 0 auto;             /* do not shrink into wrap */
-  white-space: nowrap;        /* keep label on one line */
-  text-align: left;
-}
-
-/* Number */
-.impactValue {
-  font-size: 1.25rem;
-  font-weight: 850;
-  letter-spacing: -0.02em;
-  line-height: 1.05;
-}
-
-/* Label */
-.impactLabel {
-  font-size: 0.8rem;
-  color: #666;
-  margin-top: 2px;
-  line-height: 1.15;
-}
-
-/* Optional: subtle separators without breaking layout */
-.impactItem + .impactItem {
-  border-left: 1px solid rgba(0,0,0,0.07);
-  padding-left: 18px;
-}
-
-/* On very small screens: tighten a bit */
-@media (max-width: 520px) {
-  .impactStrip { gap: 16px; }
-  .impactItem + .impactItem { padding-left: 14px; }
-  .impactValue { font-size: 1.15rem; }
-  .impactLabel { font-size: 0.78rem; }
-} */
-
-
-
-
