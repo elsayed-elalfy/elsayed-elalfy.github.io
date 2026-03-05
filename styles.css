@@ -376,9 +376,57 @@ body{
 .disabled-section { display: none; }
 /*********************/
 
+/* Right-column impact strip (compact, 2 rows) */
+.impactCardRight{
+  padding: 14px 16px;
+}
 
+.impactStrip{
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr)); /* 2 rows if 7 items */
+  gap: 12px 18px;
+  align-items: start;
+}
 
+.impactStat{
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
 
+.impactStat .v{
+  font-weight: 800;
+  font-size: 1.25rem;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.impactStat .k{
+  font-size: 0.78rem;
+  color: rgba(0,0,0,0.62);
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Laptop / medium screens: 3 columns */
+@media (max-width: 1100px){
+  .impactStrip{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+/* Tablet: 4 columns still looks good */
+@media (max-width: 900px){
+  .impactStrip{ grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+/* Mobile: 2 columns (no longer trying to force one line on small screens) */
+@media (max-width: 560px){
+  .impactStrip{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .impactStat .k{ white-space: normal; }
+}
+
+/* 
 /************ impact strip **************/
 /* Impact Card */
 .impactCard {
@@ -434,13 +482,13 @@ body{
   .impactItem + .impactItem { padding-left: 14px; }
   .impactValue { font-size: 1.15rem; }
   .impactLabel { font-size: 0.78rem; }
-}
+} */
 
 
 
 
 /*********************** to move strip **************************/
-
+/* 
 
 /* Compact impact block inside right column */
 .impactCardCompact {
@@ -481,4 +529,4 @@ body{
   .impactGridCompact {
     grid-template-columns: repeat(3, 1fr);
   }
-}
+} */
