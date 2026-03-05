@@ -533,3 +533,15 @@ body{
   .impactStrip .v{ font-size: 1.2rem; }
   .impactStrip .k{ font-size: 0.62rem; }
 }
+
+
+
+/* for hover */
+
+.navItem.hasDrop .dropMenu { display:none; }
+.navItem.hasDrop.is-open .dropMenu { display:block; }
+
+/* optional: allow hover open too (desktop) */
+@media (hover:hover){
+  .navItem.hasDrop:hover .dropMenu { display:block; }
+}
