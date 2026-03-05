@@ -1,0 +1,224 @@
+<section class="section publications">
+
+  <!-- Hero -->
+  <header class="sectionHead">
+    <h1 class="h1">Publications</h1>
+    <p class="lead">
+      Peer-reviewed journals, conferences, patents, books, chapters, and technical reports—
+      with emphasis on impact, continuity, and accessible research artifacts.
+    </p>
+
+    <!-- Quick actions -->
+    <div class="pubActions">
+      <a class="pill" href="https://scholar.google.com/" target="_blank" rel="noopener">
+        Google Scholar
+      </a>
+      <a class="pill" href="#pubs/selected">Selected</a>
+      <a class="pill" href="#pubs/journals">Journals</a>
+      <a class="pill" href="#pubs/conferences">Conferences</a>
+      <a class="pill" href="#pubs/patents">Patents</a>
+      <a class="pill" href="#pubs/books">Books</a>
+      <a class="pill" href="#pubs/reports">Reports</a>
+    </div>
+  </header>
+
+  <!-- Metrics (manual values; easy to update) -->
+  <section class="card pubMetrics" aria-label="Citation metrics">
+    <div class="pubMetricsGrid">
+      <div class="metric">
+        <div class="metricLabel">Citations</div>
+        <div class="metricValue" data-metric="citations">—</div>
+        <div class="metricHint">from Google Scholar</div>
+      </div>
+      <div class="metric">
+        <div class="metricLabel">h-index</div>
+        <div class="metricValue" data-metric="hindex">—</div>
+        <div class="metricHint">lifetime</div>
+      </div>
+      <div class="metric">
+        <div class="metricLabel">i10-index</div>
+        <div class="metricValue" data-metric="i10index">—</div>
+        <div class="metricHint">lifetime</div>
+      </div>
+      <div class="metric metricLink">
+        <div class="metricLabel">Profile</div>
+        <a class="metricValue link" data-metric="scholarLink" href="https://scholar.google.com/" target="_blank" rel="noopener">
+          Open Scholar →
+        </a>
+        <div class="metricHint">view full record</div>
+      </div>
+    </div>
+
+    <!-- You only edit these values -->
+    <script type="application/json" id="pubMetricsData">
+      {
+        "citations": "XXXX",
+        "hindex": "XX",
+        "i10index": "XX",
+        "scholarLink": "https://scholar.google.com/"
+      }
+    </script>
+  </section>
+
+  <!-- Filters -->
+  <section class="card pubFilters" aria-label="Publication filters">
+    <div class="pubFiltersRow">
+      <div class="field">
+        <label class="label" for="pubYear">Year</label>
+        <select id="pubYear" class="select">
+          <option value="all">All years</option>
+          <!-- JS will populate from items -->
+        </select>
+      </div>
+
+      <div class="field">
+        <label class="label" for="pubTopic">Topic</label>
+        <select id="pubTopic" class="select">
+          <option value="all">All topics</option>
+          <!-- JS will populate from items -->
+        </select>
+      </div>
+
+      <div class="field grow">
+        <label class="label" for="pubSearch">Search</label>
+        <input id="pubSearch" class="input" type="search" placeholder="Title, author, venue, keyword…" />
+      </div>
+
+      <div class="field">
+        <label class="label">&nbsp;</label>
+        <button id="pubReset" class="btn" type="button">Reset</button>
+      </div>
+    </div>
+
+    <p class="muted" style="margin-top:.6rem">
+      Tip: tag each item with <code>data-year</code> and <code>data-topics</code> (comma-separated) to make filtering automatic.
+    </p>
+  </section>
+
+  <!-- Selected Publications -->
+  <section id="selected" class="card pubSelected" aria-label="Selected publications">
+    <div class="pubSectionHead">
+      <h2 class="h2">Selected Publications</h2>
+      <p class="muted">A curated set highlighting research direction, rigor, and impact.</p>
+    </div>
+
+    <ol class="pubList">
+      <!-- Example entries (keep / replace). Add data-year + data-topics for filters -->
+      <li class="pubItem" data-year="2025" data-topics="Vision Transformers,Multimodal Learning,Smart Grids">
+        <div class="pubTitle">Household Appliance Identification Using Vision Transformers and Multimodal Data Fusion</div>
+        <div class="pubMeta">
+          <span class="pubAuthors">M. Ayub, E.-S. M. El-Alfy</span> ·
+          <span class="pubVenue">IEEE Transactions on Consumer Electronics</span> ·
+          <span class="pubYear">2025</span>
+        </div>
+      </li>
+
+      <li class="pubItem" data-year="2024" data-topics="Multimodal Learning,Emotion AI,Datasets">
+        <div class="pubTitle">A review and critical analysis of multimodal datasets for emotional AI</div>
+        <div class="pubMeta">
+          <span class="pubAuthors">S. Al-Azani, E.-S. M. El-Alfy</span> ·
+          <span class="pubVenue">Artificial Intelligence Review</span> ·
+          <span class="pubYear">2025</span>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- Full Lists -->
+  <section class="card" id="journals" aria-label="Journal publications">
+    <div class="pubSectionHead">
+      <h2 class="h2">Refereed Journal Articles</h2>
+      <p class="muted">Complete journal record (published, in-review, under preparation).</p>
+    </div>
+
+    <ol class="pubList pubAll" data-publist="journals">
+      <!-- Add your full [J-..] items here -->
+      <!-- Each item: data-year + data-topics -->
+      <li class="pubItem" data-year="2025" data-topics="Multimodal Learning,Vision Transformers,Demographics">
+        <div class="pubTitle">Multimodal Vision Transformer Ensemble and Dataset for Demographic Recognition in Social Media Surveillance</div>
+        <div class="pubMeta">
+          <span class="pubAuthors">S. Al-Azani, E.-S. M. El-Alfy</span> ·
+          <span class="pubVenue">Under Preparation</span> ·
+          <span class="pubYear">2025</span>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section class="card" id="conferences" aria-label="Conference publications">
+    <div class="pubSectionHead">
+      <h2 class="h2">Refereed Conference Papers</h2>
+      <p class="muted">Published proceedings, LNCS chapters, IEEE/IET, and related venues.</p>
+    </div>
+
+    <ol class="pubList pubAll" data-publist="conferences">
+      <!-- Add your full [C-..] items here -->
+      <li class="pubItem" data-year="2026" data-topics="Smart Mobility,Forecasting,Transformers">
+        <div class="pubTitle">Temporal Fusion Transformer-Based Framework for Electric Vehicle Charging Demand Forecasting</div>
+        <div class="pubMeta">
+          <span class="pubAuthors">E.-S. M. El-Alfy, S. Sadiq, M. Ayub, M. F. Nurnoby</span> ·
+          <span class="pubVenue">Transportation Research Procedia (SMiLE)</span> ·
+          <span class="pubYear">2026</span>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section class="card" id="patents" aria-label="Patents">
+    <div class="pubSectionHead">
+      <h2 class="h2">Patents</h2>
+      <p class="muted">Granted patents and patent applications.</p>
+    </div>
+
+    <ol class="pubList pubAll" data-publist="patents">
+      <!-- Add your full [P-..] items here -->
+      <li class="pubItem" data-year="2022" data-topics="Multimodal,Sentiment,Demographics">
+        <div class="pubTitle">Multi-modal detection engine of sentiment and demographic characteristics for social media videos</div>
+        <div class="pubMeta">
+          <span class="pubAuthors">E.-S. M. El-Alfy, S. Al-Azani</span> ·
+          <span class="pubVenue">USPTO Grant</span> ·
+          <span class="pubYear">2022</span>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section class="card" id="books" aria-label="Books">
+    <div class="pubSectionHead">
+      <h2 class="h2">Books</h2>
+      <p class="muted">Edited volumes, authored and translated books.</p>
+    </div>
+
+    <ol class="pubList pubAll" data-publist="books">
+      <!-- Add your full [RB-..] and [TB-..] items here -->
+      <li class="pubItem" data-year="2023" data-topics="Image Analytics,Video Analytics,Edited Volume">
+        <div class="pubTitle">Intelligent Image and Video Analytics: Clustering and Classification Applications</div>
+        <div class="pubMeta">
+          <span class="pubAuthors">E.-S. M. El-Alfy, G. Bebis, M. Zhou (Eds.)</span> ·
+          <span class="pubVenue">CRC Press</span> ·
+          <span class="pubYear">2023</span>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section class="card" id="reports" aria-label="Technical reports and theses">
+    <div class="pubSectionHead">
+      <h2 class="h2">Technical Reports, Theses & Other Works</h2>
+      <p class="muted">Refereed technical reports, dissertations, theses, and related academic documents.</p>
+    </div>
+
+    <ol class="pubList pubAll" data-publist="reports">
+      <!-- Add your full [TR-..] and [O-..] items here -->
+      <li class="pubItem" data-year="2001" data-topics="Wireless Networks,Q-learning,Dissertation">
+        <div class="pubTitle">Intelligent System for Channel Allocation with Prioritized Handoff in Mobile Cellular Multimedia Networks</div>
+        <div class="pubMeta">
+          <span class="pubAuthors">E.-S. M. El-Alfy</span> ·
+          <span class="pubVenue">PhD Dissertation</span> ·
+          <span class="pubYear">2001</span>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+</section>
