@@ -420,3 +420,9 @@ body{
 .impactCard {
   background: linear-gradient(to bottom, #ffffff, #fbfcff);
 }
+
+
+.impactItem:not(:last-child) {
+  border-right: 1px solid rgba(0,0,0,0.06);
+  padding-right: 24px;
+}
