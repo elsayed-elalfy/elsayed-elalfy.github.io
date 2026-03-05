@@ -390,7 +390,7 @@ Impact
 /* Always ONE line */
 .impactStrip {
   display: flex;
-  flex-wrap: nowrap;          /* never wrap */
+  flex-wrap: wrap;          /* never wrap */
   align-items: center;
   justify-content: space-between;
   gap: 22px;
