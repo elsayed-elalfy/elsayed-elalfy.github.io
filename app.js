@@ -207,6 +207,114 @@ function initHomeHighlights() {
   });
 }
 
+
+
+// added for publications
+
+function initPublications(){
+  // Metrics block
+  const metricsEl = document.getElementById("pubMetricsData");
+  if(metricsEl){
+    try{
+      const data = JSON.parse(metricsEl.textContent || "{}");
+      const set = (key, val) => {
+        const node = document.querySelector(`[data-metric="${key}"]`);
+        if(!node) return;
+        if(node.tagName.toLowerCase() === "a"){
+          node.href = val || "#";
+        }else{
+          node.textContent = val ?? "—";
+        }
+      };
+      set("citations", data.citations);
+      set("hindex", data.hindex);
+      set("i10index", data.i10index);
+      set("scholarLink", data.scholarLink);
+    }catch{}
+  }
+
+  // Filtering
+  const yearSel = document.getElementById("pubYear");
+  const topicSel = document.getElementById("pubTopic");
+  const searchEl = document.getElementById("pubSearch");
+  const resetBtn = document.getElementById("pubReset");
+  const items = Array.from(document.querySelectorAll(".pubItem"));
+
+  if(!yearSel || !topicSel || !searchEl || !resetBtn || items.length === 0) return;
+
+  // Populate year options from items
+  const years = Array.from(new Set(items.map(n => n.dataset.year).filter(Boolean)))
+    .sort((a,b) => Number(b) - Number(a));
+  for(const y of years){
+    const opt = document.createElement("option");
+    opt.value = y;
+    opt.textContent = y;
+    yearSel.appendChild(opt);
+  }
+
+  // Populate topic options from items
+  const topicSet = new Set();
+  for(const n of items){
+    const topics = (n.dataset.topics || "")
+      .split(",")
+      .map(s => s.trim())
+      .filter(Boolean);
+    topics.forEach(t => topicSet.add(t));
+  }
+  const topics = Array.from(topicSet).sort((a,b)=>a.localeCompare(b));
+  for(const t of topics){
+    const opt = document.createElement("option");
+    opt.value = t;
+    opt.textContent = t;
+    topicSel.appendChild(opt);
+  }
+
+  function applyFilter(){
+    const y = yearSel.value;
+    const t = topicSel.value;
+    const q = (searchEl.value || "").trim().toLowerCase();
+
+    for(const n of items){
+      const ny = n.dataset.year || "";
+      const nt = (n.dataset.topics || "").toLowerCase();
+      const text = (n.textContent || "").toLowerCase();
+
+      const okYear = (y === "all") || (ny === y);
+      const okTopic = (t === "all") || nt.includes(t.toLowerCase());
+      const okSearch = (!q) || text.includes(q);
+
+      n.style.display = (okYear && okTopic && okSearch) ? "" : "none";
+    }
+  }
+
+  yearSel.addEventListener("change", applyFilter);
+  topicSel.addEventListener("change", applyFilter);
+  searchEl.addEventListener("input", applyFilter);
+
+  resetBtn.addEventListener("click", () => {
+    yearSel.value = "all";
+    topicSel.value = "all";
+    searchEl.value = "";
+    applyFilter();
+  });
+
+  applyFilter();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Routing */
 async function renderRoute() {
   const { route, section } = parseHash();
@@ -240,7 +348,11 @@ async function renderRoute() {
   }
 
   // Page-specific init
-  if (route === "home") initHomeHighlights();
+  // if (route === "home") initHomeHighlights();
+
+if(route === "home") initHomeHighlights();
+if(route === "publications") initPublications();
+focusMain();
 
   // Fix internal anchors (optional)
   normalizeInPageAnchors(route);
