@@ -52,21 +52,21 @@ function focusMain(){
 const HOME_HIGHLIGHTS = [
   {
     img: "assets/highlights/h1.jpg",
-    title: "Fellow — SDAIA–KFUPM Joint AI Research Center",
-    text: "Research leadership and engagement in national AI initiatives.",
-    link: "https://pure.kfupm.edu.sa/en/persons/elsayed-elalfy/"
+    title: "Best Paper Presentation Award, SMiLE 2026",
+    text: "EV Charging Forecasting",
+    link: "https://ri.kfupm.edu.sa/irc-sml/events/event-details/the-second-international-conference-on-smart-mobility-and-logistics-ecosystems-(smile)"
   },
   {
-    img: "assets/highlights/h2.jpg",
-    title: "Senior Research Scholar — IRC for Intelligent Secure Systems",
-    text: "Research contributions in intelligent secure analytics and deployable AI.",
-    link: "#service"
+    img: "assets/highlights/h1.jpg",
+    title: "Best Paper Presentation Award, SMiLE 2026",
+    text: "Driver Drowsiness Detection for Smart Mobility.",
+    link: "https://ri.kfupm.edu.sa/irc-sml/events/event-details/the-second-international-conference-on-smart-mobility-and-logistics-ecosystems-(smile)"
   },
   {
-    img: "assets/highlights/h3.jpg",
-    title: "Graduate Supervision",
-    text: "MSc/PhD mentorship with publication-oriented research expectations.",
-    link: "#teaching"
+    img: "assets/highlights/h1.jpg",
+    title: "Worskshop",
+    text: "ML for Smart Mobility in MATLAB",
+    link: "https://events.kfupm.edu.sa/event/247/page/416-workshops"
   }
 ];
 
