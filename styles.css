@@ -375,86 +375,69 @@ body{
 /*********************/
 .disabled-section { display: none; }
 /*********************/
-
-
 /* =========================
-   Organized Impact Strip
-========================= */
-/* =========================
-   Impact strip (polished)
+   Impact Strip — Refined
 ========================= */
 
 .impactStrip{
-  margin-top: 18px;
-  padding-top: 14px;
-  border-top: 1px solid rgba(0,0,0,0.08);
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(0,0,0,0.07);
 
   display: grid;
   grid-template-columns: repeat(7, minmax(0, 1fr));
-  gap: 18px 18px;
+  gap: 20px 24px;
   align-items: start;
 }
 
-/* Each metric cell */
+/* Individual metric */
 .impactStrip > div{
-  position: relative;
   min-width: 0;
-  padding-right: 14px; /* space for separator */
+  padding-right: 18px;
+  position: relative;
 }
 
-/* Clean separator that works even when grid wraps */
-.impactStrip > div::after{
+/* Subtle vertical separator (desktop only) */
+.impactStrip > div:not(:last-child)::after{
   content: "";
   position: absolute;
-  top: 6px;
   right: 0;
-  height: calc(100% - 12px);
+  top: 6px;
+  height: 24px;
   width: 1px;
   background: rgba(0,0,0,0.06);
 }
 
-/* No separator on last item of each row:
-   easiest + cleanest approach is to remove all separators on wrap breakpoints */
-.impactStrip > div:last-child::after{
-  display: none;
-}
-
-/* Value (number) */
+/* Value (large number) */
 .impactStrip .v{
-  font-size: 1.28rem;
+  font-size: 1.35rem;
   font-weight: 800;
   line-height: 1;
   letter-spacing: -0.02em;
-  color: #111827;
+  color: #0f172a;   /* slightly deeper tone */
 }
 
-/* Label (small) */
+/* Label (small, calm, secondary) */
 .impactStrip .k{
-  margin-top: 3px;
+  margin-top: 4px;
   font-size: 0.72rem;
   font-weight: 500;
-  color: rgba(0,0,0,0.58);
-  line-height: 1.2;
-
-  /* prevents ugly tall columns */
-  max-width: 14ch;
-  word-wrap: break-word;
+  color: rgba(0,0,0,0.55);
+  line-height: 1.25;
 }
 
 /* =========================
-   Responsive
+   Responsive adjustments
 ========================= */
 
 /* Large laptop */
 @media (max-width: 1200px){
   .impactStrip{
     grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px 20px;
   }
 
-  /* separators become visually inconsistent across rows on wrap → remove */
-  .impactStrip > div{
-    padding-right: 0;
-  }
+  /* Remove separators when wrapping */
   .impactStrip > div::after{
     display: none;
   }
@@ -464,75 +447,26 @@ body{
 @media (max-width: 768px){
   .impactStrip{
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px 18px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 520px){
+  .impactStrip{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 14px 16px;
   }
-}
 
-/* Mobile */
-@media (max-width: 520px){
-  .impactStrip{
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px 14px;
+  .impactStrip .v{
+    font-size: 1.25rem;
+  }
+
+  .impactStrip .k{
+    font-size: 0.70rem;
   }
 }
-/* .impactStrip{
-  margin-top: 18px;
-  padding-top: 14px;
-  border-top: 1px solid rgba(0,0,0,0.08);
 
-  display: grid;
-  grid-template-columns: repeat(7, minmax(0, 1fr));
-  gap: 18px 22px;
-  align-items: start;
-}
-
-/* Individual metric */
-.impactStrip > div{
-  text-align: left;
-  min-width: 0;
-}
-
-/* Value (big number) */
 .impactStrip .v{
-  font-size: 1.2rem;
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  color: #111827;
+  font-variant-numeric: tabular-nums;
 }
-
-/* Label */
-.impactStrip .k{
-  margin-top: 2px;
-  font-size: 0.75rem;
-  color: rgba(0,0,0,0.6);
-  line-height: 1.2;
-}
-
-/* Responsive behavior */
-
-/* Large laptop */
-@media (max-width: 1200px){
-  .impactStrip{
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-}
-
-/* Tablet */
-@media (max-width: 768px){
-  .impactStrip{
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
-/* Mobile */
-@media (max-width: 520px){
-  .impactStrip{
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-.impactStrip > div:not(:last-child){
-  border-right: 1px solid rgba(0,0,0,0.06);
-  padding-right: 14px;
-} */
