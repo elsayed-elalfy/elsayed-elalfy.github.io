@@ -472,6 +472,13 @@ body{
   }
 }
 
+/* TEMP: hide impact strip if it appears in the right column */
+.homeRightCol .impactInline,
+.rightCol .impactInline,
+.sidebar .impactInline {
+  display: none !important;
+}
+
 
 /* 
 
