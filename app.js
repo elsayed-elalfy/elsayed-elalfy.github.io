@@ -35,6 +35,7 @@ window.addEventListener("hashchange", () => {
  *   #teaching/overview
  *   #teaching/curriculum-accreditation
  */
+/* Hash parsing */
 function parseHash() {
   const raw = (location.hash || "#home").replace("#", "").trim();
   const [routePart, sectionPart] = raw.split("/");
@@ -364,7 +365,7 @@ async function renderRoute() {
 
 if(route === "home") initHomeHighlights();
 if(route === "publications") initPublications();
-focusMain();
+// focusMain();
 
   // Fix internal anchors (optional)
   normalizeInPageAnchors(route);
