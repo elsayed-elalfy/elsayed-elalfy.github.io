@@ -37,7 +37,22 @@
           </div>
         </div>
 
-        <a class="nav__link" href="#publications" data-route="publications">Publications</a>
+        <!-- <a class="nav__link" href="#publications" data-route="publications">Publications</a> -->
+
+        <div class="navItem">
+          <a class="nav__link nav__link--parent" href="#publications" data-route="publications" aria-haspopup="true">
+            Teaching <span class="caret" aria-hidden="true">▾</span>
+          </a>
+          <div class="dropdown" role="menu" aria-label="Teaching submenu">
+            <a href="#publications/overview" data-route="publications" role="menuitem">Overview</a>
+            <a href="#publications/journals" data-route="publications" role="menuitem">Journal Articles</a>
+            <a href="#publications/conferences" data-route="publications" role="menuitem">Conference Papers</a>
+            <a href="#publications/patents" data-route="publications" role="menuitem">Patents</a>
+            <a href="#publications/books-chapters" data-route="publications" role="menuitem">Books &amp; Chapters</a>
+            <a href="#publications/reports-other" data-route="publications" role="menuitem">Reports &amp; Other</a>
+          </div>
+        </div>
+        
 
         <div class="navItem">
           <a class="nav__link nav__link--parent" href="#teaching" data-route="teaching" aria-haspopup="true">
