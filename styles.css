@@ -380,49 +380,58 @@ body{
 
 
 /************ impact strip **************/
-
 /* Impact Card */
 .impactCard {
-  padding: 22px 24px;
+  padding: 18px 20px;
 }
 
-/* Horizontal strip */
+/* Always ONE line */
 .impactStrip {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: nowrap;          /* never wrap */
   align-items: center;
-  gap: 28px;
-  flex-wrap: wrap; /* wraps cleanly on smaller screens */
+  justify-content: space-between;
+  gap: 22px;
+
+  overflow-x: auto;           /* mobile: scroll instead of wrapping */
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  padding-bottom: 6px;        /* room for scrollbar if shown */
 }
 
-/* Individual metric */
+/* Each metric: compact and non-wrapping */
 .impactItem {
-  display: flex;
-  flex-direction: column;
-  min-width: 130px;
+  flex: 0 0 auto;             /* do not shrink into wrap */
+  white-space: nowrap;        /* keep label on one line */
+  text-align: left;
 }
 
-/* Big number */
+/* Number */
 .impactValue {
-  font-size: 1.4rem;
-  font-weight: 800;
+  font-size: 1.25rem;
+  font-weight: 850;
   letter-spacing: -0.02em;
+  line-height: 1.05;
 }
 
 /* Label */
 .impactLabel {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: #666;
   margin-top: 2px;
+  line-height: 1.15;
 }
 
-/* Slight visual separation from other cards */
-.impactCard {
-  background: linear-gradient(to bottom, #ffffff, #fbfcff);
+/* Optional: subtle separators without breaking layout */
+.impactItem + .impactItem {
+  border-left: 1px solid rgba(0,0,0,0.07);
+  padding-left: 18px;
 }
 
-
-.impactItem:not(:last-child) {
-  border-right: 1px solid rgba(0,0,0,0.06);
-  padding-right: 24px;
+/* On very small screens: tighten a bit */
+@media (max-width: 520px) {
+  .impactStrip { gap: 16px; }
+  .impactItem + .impactItem { padding-left: 14px; }
+  .impactValue { font-size: 1.15rem; }
+  .impactLabel { font-size: 0.78rem; }
 }
