@@ -376,97 +376,64 @@ body{
 .disabled-section { display: none; }
 /*********************/
 
-/* Right-column impact strip (compact, 2 rows) */
-.impactCardRight{
-  padding: 14px 16px;
+
+
+/*************** 
+Impact 
+****************/
+
+/* Impact Card */
+.impactCard {
+  padding: 18px 20px;
 }
 
-.impactStrip{
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr)); /* 2 rows if 7 items */
-  gap: 12px 18px;
-  align-items: start;
-}
-
-.impactStat{
-  display: grid;
-  gap: 2px;
-  min-width: 0;
-}
-
-.impactStat .v{
-  font-weight: 800;
-  font-size: 1.25rem;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-}
-
-.impactStat .k{
-  font-size: 0.78rem;
-  color: rgba(0,0,0,0.62);
-  line-height: 1.2;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/* Laptop / medium screens: 3 columns */
-@media (max-width: 1100px){
-  .impactStrip{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
-}
-
-/* Tablet: 4 columns still looks good */
-@media (max-width: 900px){
-  .impactStrip{ grid-template-columns: repeat(4, minmax(0, 1fr)); }
-}
-
-/* Mobile: 2 columns (no longer trying to force one line on small screens) */
-@media (max-width: 560px){
-  .impactStrip{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .impactStat .k{ white-space: normal; }
-}
-
-
-
-
-/* =========================
-   Impact strip under hero buttons
-========================= */
-
-.impactInline {
-  margin-top: 18px;
-  padding-top: 14px;
-  border-top: 1px solid rgba(0,0,0,0.08);
-
+/* Always ONE line */
+.impactStrip {
   display: flex;
-  flex-wrap: wrap;
-  gap: 16px 26px;
+  flex-wrap: nowrap;          /* never wrap */
   align-items: center;
+  justify-content: space-between;
+  gap: 22px;
 
-  width: 100%;
+  overflow-x: auto;           /* mobile: scroll instead of wrapping */
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  padding-bottom: 6px;        /* room for scrollbar if shown */
 }
 
-.impactInline .impactStat {
-  display: flex;
-  flex-direction: column;
-  min-width: 90px;
+/* Each metric: compact and non-wrapping */
+.impactItem {
+  flex: 0 0 auto;             /* do not shrink into wrap */
+  white-space: nowrap;        /* keep label on one line */
+  text-align: left;
 }
 
-.impactInline .v {
-  font-size: 1.15rem;
-  font-weight: 800;
+/* Number */
+.impactValue {
+  font-size: 1.25rem;
+  font-weight: 850;
+  letter-spacing: -0.02em;
   line-height: 1.05;
 }
 
-.impactInline .k {
-  font-size: 0.75rem;
-  color: rgba(0,0,0,0.6);
-  line-height: 1.2;
+/* Label */
+.impactLabel {
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 2px;
+  line-height: 1.15;
 }
 
-/* Responsive tightening */
-@media (max-width: 768px) {
-  .impactInline {
-    gap: 14px 20px;
-  }
+/* Optional: subtle separators without breaking layout */
+.impactItem + .impactItem {
+  border-left: 1px solid rgba(0,0,0,0.07);
+  padding-left: 18px;
+}
+
+/* On very small screens: tighten a bit */
+@media (max-width: 520px) {
+  .impactStrip { gap: 16px; }
+  .impactItem + .impactItem { padding-left: 14px; }
+  .impactValue { font-size: 1.15rem; }
+  .impactLabel { font-size: 0.78rem; }
 }
