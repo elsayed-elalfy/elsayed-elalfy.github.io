@@ -35,18 +35,18 @@ window.addEventListener("hashchange", () => {
  *   #teaching/overview
  *   #teaching/curriculum-accreditation
  */
-function parseHash() {
-  const raw = (location.hash || "#home").replace("#", "").trim();
-  const [routePart, sectionPart] = raw.split("/");
-  return {
-    route: (routePart || "home").toLowerCase(),
-    section: (sectionPart || "").trim(),
-  };
-}
-
-// function getRoute() {
-//   return parseHash().route;
+// function parseHash() {
+//   const raw = (location.hash || "#home").replace("#", "").trim();
+//   const [routePart, sectionPart] = raw.split("/");
+//   return {
+//     route: (routePart || "home").toLowerCase(),
+//     section: (sectionPart || "").trim(),
+//   };
 // }
+
+function getRoute() {
+  return parseHash().route;
+}
 
 function getRoute(){
   const hash = (location.hash || "#home").replace("#", "");
