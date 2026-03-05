@@ -333,7 +333,7 @@ async function renderRoute() {
   if (!appEl) return;
 
   const map = {
-    home: "index.html",
+    home: "home.html",
     research: "research.html",
     publications: "publications.html",
     teaching: "teaching.html",
