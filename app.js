@@ -44,9 +44,20 @@ function parseHash() {
   };
 }
 
-function getRoute() {
-  return parseHash().route;
+// function getRoute() {
+//   return parseHash().route;
+// }
+
+function getRoute(){
+  const hash = (location.hash || "#home").replace("#", "");
+  const [route, sub] = hash.split("/");
+
+  // Treat "#publications/home" as "#publications"
+  if (sub === "home") return route || "home";
+
+  return route || "home";
 }
+
 
 async function fetchPartial(file) {
   try {
@@ -322,7 +333,7 @@ async function renderRoute() {
   if (!appEl) return;
 
   const map = {
-    home: "home.html",
+    home: "index.html",
     research: "research.html",
     publications: "publications.html",
     teaching: "teaching.html",
