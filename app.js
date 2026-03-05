@@ -29,20 +29,18 @@ window.addEventListener("hashchange", () => {
 });
 
 /**
- * Hash format supported:
+ * Supported hash formats:
  *   #home
  *   #teaching
  *   #teaching/overview
- *   #teaching/courses
- *   #teaching/course-leadership
- * etc.
+ *   #teaching/curriculum-accreditation
  */
 function parseHash() {
   const raw = (location.hash || "#home").replace("#", "").trim();
   const [routePart, sectionPart] = raw.split("/");
   return {
-    route: routePart || "home",
-    section: sectionPart || "",
+    route: (routePart || "home").toLowerCase(),
+    section: (sectionPart || "").trim(),
   };
 }
 
@@ -64,42 +62,64 @@ function focusMain() {
   if (appEl) appEl.focus({ preventScroll: true });
 }
 
-/* Smooth-scroll to a section AFTER the partial loads */
-function scrollToSection(sectionId) {
+/**
+ * Wait until an element exists in the DOM (reliable on GitHub Pages).
+ * Tries for up to `timeoutMs` using small intervals.
+ */
+function waitForElementById(id, timeoutMs = 1200) {
+  const start = performance.now();
+
+  return new Promise((resolve) => {
+    const tick = () => {
+      const el = document.getElementById(id);
+      if (el) return resolve(el);
+
+      if (performance.now() - start >= timeoutMs) return resolve(null);
+      setTimeout(tick, 40);
+    };
+    tick();
+  });
+}
+
+/**
+ * Scroll after content loads. Uses retries to avoid timing issues.
+ * Also supports "top" when section is empty.
+ */
+async function scrollToSection(sectionId) {
   if (!sectionId) {
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
     return;
   }
 
-  // Wait one frame to ensure DOM is painted
-  requestAnimationFrame(() => {
-    const safeId = typeof CSS !== "undefined" && CSS.escape ? CSS.escape(sectionId) : sectionId;
-    const el = document.getElementById(sectionId) || document.querySelector(`#${safeId}`);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
-    } else {
-      // If section not found, fall back to top
-      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-    }
-  });
+  // Wait until the section actually exists
+  const el = await waitForElementById(sectionId);
+
+  if (!el) {
+    // Not found (maybe typo in id) -> fallback to top
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    return;
+  }
+
+  // Extra tiny delay helps in some layouts after innerHTML replace
+  setTimeout(() => {
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, 0);
 }
 
 /**
- * Optional: convert in-page links like href="#overview" inside teaching.html
- * to href="#teaching/overview" automatically, so they work from any route.
+ * Optional but helpful:
+ * If teaching.html contains href="#overview", convert it to href="#teaching/overview"
+ * so it works even if clicked from another page.
  */
 function normalizeInPageAnchors(route) {
-  // Only needed for pages with lots of internal anchors (e.g., teaching)
-  // If you already set your links as #teaching/overview, you can delete this function.
   $$('a[href^="#"]').forEach((a) => {
     const href = a.getAttribute("href");
     if (!href) return;
 
-    // Ignore SPA routes already in the form #route/section
+    // Already in the form #route/section
     if (/^#[^/]+\/.+/.test(href)) return;
 
     // Convert plain #section to #<route>/section
-    // Example: #overview => #teaching/overview (when on teaching page)
     if (href.length > 1 && !href.includes("/")) {
       const section = href.slice(1);
       a.setAttribute("href", `#${route}/${section}`);
@@ -133,7 +153,9 @@ let hlIndex = 0;
 let hlTimer = null;
 
 function setDots(i) {
-  $$(".hlDots .dot").forEach((d, idx) => d.classList.toggle("is-active", idx === i));
+  $$(".hlDots .dot").forEach((d, idx) =>
+    d.classList.toggle("is-active", idx === i)
+  );
 }
 
 function renderHighlight(i) {
@@ -220,27 +242,14 @@ async function renderRoute() {
   // Page-specific init
   if (route === "home") initHomeHighlights();
 
-  // Make sure internal anchors behave as #route/section (optional but handy)
+  // Fix internal anchors (optional)
   normalizeInPageAnchors(route);
 
-  // Scroll to section if present (after content loads)
-  scrollToSection(section);
+  // IMPORTANT: scroll after load (reliable)
+  await scrollToSection(section);
 
-  // Focus main container for accessibility
+  // Accessibility
   focusMain();
 }
 
 renderRoute();
-
-/* Tip:
-   Set menu links like:
-     Teaching -> href="#teaching"
-     Teaching submenu:
-       Overview -> href="#teaching/overview"
-       Courses -> href="#teaching/courses"
-       Course Leadership -> href="#teaching/course-leadership"
-       Curriculum & Accreditation -> href="#teaching/curriculum-accreditation"
-       Course & Lab Development -> href="#teaching/development"
-       Mentoring & Supervision -> href="#teaching/mentoring"
-       Continuing Education -> href="#teaching/continuing-ed"
-*/
