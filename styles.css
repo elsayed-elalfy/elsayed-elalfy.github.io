@@ -486,47 +486,97 @@ body{
 
 
 
+/* =========================
+   IMPACT STRIP (Inline under hero buttons)
+========================= */
 
-/*********************** to move strip **************************/
-/* 
-
-/* Compact impact block inside right column */
-.impactCardCompact {
-  margin-top: 18px;
+.impactInline {
+  margin-top: 20px;
   padding-top: 14px;
-  border-top: 1px solid rgba(0,0,0,0.08);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px 28px;
 }
 
-.impactGridCompact {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px 18px;
+/* Each metric block */
+.impactInline .impactStat {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 95px;
+  position: relative;
 }
 
-.impactGridCompact .impactItem {
-  text-align: left;
-}
-
-.impactGridCompact .impactValue {
-  font-size: 1.1rem;
+/* Large number */
+.impactInline .v {
+  font-size: 1.25rem;
   font-weight: 800;
-  line-height: 1.1;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: #111827;
 }
 
-.impactGridCompact .impactLabel {
+/* Label */
+.impactInline .k {
   font-size: 0.75rem;
-  color: #666;
+  color: rgba(0, 0, 0, 0.6);
+  line-height: 1.2;
+  margin-top: 2px;
 }
 
-/* Responsive */
-@media (max-width: 1100px) {
-  .impactGridCompact {
-    grid-template-columns: repeat(2, 1fr);
-  }
+/* Subtle vertical divider between items */
+.impactInline .impactStat:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: -14px;
+  top: 8px;
+  height: 24px;
+  width: 1px;
+  background: rgba(0, 0, 0, 0.06);
 }
 
+/* Remove divider when wrapping */
 @media (max-width: 900px) {
-  .impactGridCompact {
-    grid-template-columns: repeat(3, 1fr);
+  .impactInline .impactStat::after {
+    display: none;
   }
-} */
+}
+
+/* Tablet adjustment */
+@media (max-width: 768px) {
+  .impactInline {
+    gap: 16px 22px;
+  }
+  .impactInline .v {
+    font-size: 1.15rem;
+  }
+}
+
+/* Mobile refinement */
+@media (max-width: 520px) {
+  .impactInline {
+    gap: 14px 18px;
+  }
+
+  .impactInline .impactStat {
+    min-width: 80px;
+  }
+
+  .impactInline .v {
+    font-size: 1.1rem;
+  }
+
+  .impactInline .k {
+    font-size: 0.72rem;
+  }
+}
+
+.impactInline {
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 10px;
+  padding: 16px 18px;
+}
+
