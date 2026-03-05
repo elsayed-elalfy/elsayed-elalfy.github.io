@@ -375,3 +375,48 @@ body{
 /*********************/
 .disabled-section { display: none; }
 /*********************/
+
+
+
+
+/************ impact strip **************/
+
+/* Impact Card */
+.impactCard {
+  padding: 22px 24px;
+}
+
+/* Horizontal strip */
+.impactStrip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap; /* wraps cleanly on smaller screens */
+}
+
+/* Individual metric */
+.impactItem {
+  display: flex;
+  flex-direction: column;
+  min-width: 130px;
+}
+
+/* Big number */
+.impactValue {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+/* Label */
+.impactLabel {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 2px;
+}
+
+/* Slight visual separation from other cards */
+.impactCard {
+  background: linear-gradient(to bottom, #ffffff, #fbfcff);
+}
