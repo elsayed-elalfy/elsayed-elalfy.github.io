@@ -377,102 +377,68 @@ body{
 /*********************/
 
 
+/* =========================
+   Organized Impact Strip
+========================= */
 
-/*************** 
-Impact 
-****************/
-
-/* Impact Card */
-.impactCard {
-  padding: 18px 20px;
-}
-
-/* /* Always ONE line */
-.impactStrip {
-  display: flex;
-  flex-wrap: wrap;          /* never wrap */
-  align-items: center;
-  justify-content: space-between;
-  gap: 22px;
-
-  overflow-x: auto;           /* mobile: scroll instead of wrapping */
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;
-  padding-bottom: 6px;        /* room for scrollbar if shown */
-}
-
-/* Each metric: compact and non-wrapping */
-.impactItem {
-  flex: 0 0 auto;             /* do not shrink into wrap */
-  white-space: nowrap;        /* keep label on one line */
-  text-align: left;
-}
-
-/* Number */
-.impactValue {
-  font-size: 1.25rem;
-  font-weight: 850;
-  letter-spacing: -0.02em;
-  line-height: 1.05;
-}
-
-/* Label */
-.impactLabel {
-  font-size: 0.8rem;
-  color: #666;
-  margin-top: 2px;
-  line-height: 1.15;
-}
-
-/* Optional: subtle separators without breaking layout */
-.impactItem + .impactItem {
-  border-left: 1px solid rgba(0,0,0,0.07);
-  padding-left: 18px;
-}
-
-/* On very small screens: tighten a bit */
-@media (max-width: 520px) {
-  .impactStrip { gap: 16px; }
-  .impactItem + .impactItem { padding-left: 14px; }
-  .impactValue { font-size: 1.15rem; }
-  .impactLabel { font-size: 0.78rem; }
-} */
-
-
-/* Impact strip inside the hero card (under Download CV) */
 .impactStrip{
-  /* Layout */
-  display: flex;
-  flex-wrap: nowrap;              /* keep on one line */
-  align-items: center;
-  gap: 22px;
-
-  /* Make it feel attached to the hero */
-  width: 100%;
-  margin-top: 16px;
+  margin-top: 18px;
   padding-top: 14px;
   border-top: 1px solid rgba(0,0,0,0.08);
 
-  /* Mobile behavior: horizontal scroll instead of wrapping */
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;
-  padding-bottom: 6px;
-
-  /* Prevent the strip from stretching weirdly */
-  justify-content: flex-start;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 18px 22px;
+  align-items: start;
 }
 
-/* Each stat should not shrink into unreadable text */
-.impactStrip > *{
-  flex: 0 0 auto;
+/* Individual metric */
+.impactStrip > div{
+  text-align: left;
+  min-width: 0;
 }
 
-/* Optional: make scrollbar less visually heavy */
-.impactStrip::-webkit-scrollbar{
-  height: 6px;
+/* Value (big number) */
+.impactStrip .v{
+  font-size: 1.2rem;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: #111827;
 }
-.impactStrip::-webkit-scrollbar-thumb{
-  background: rgba(0,0,0,0.18);
-  border-radius: 999px;
+
+/* Label */
+.impactStrip .k{
+  margin-top: 2px;
+  font-size: 0.75rem;
+  color: rgba(0,0,0,0.6);
+  line-height: 1.2;
+}
+
+/* Responsive behavior */
+
+/* Large laptop */
+@media (max-width: 1200px){
+  .impactStrip{
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px){
+  .impactStrip{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Mobile */
+@media (max-width: 520px){
+  .impactStrip{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.impactStrip > div:not(:last-child){
+  border-right: 1px solid rgba(0,0,0,0.06);
+  padding-right: 14px;
 }
