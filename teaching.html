@@ -1,214 +1,126 @@
 <!-- =========================================================
-     TEACHING PAGE (Sections only)
-     Impressive, elegant, friendly, and highly extendable.
-     Assumes your existing layout + styles.css provides:
-     .container .section .section-alt .grid .two-col .cards-grid
-     .card .card-body .card-title .card-text .list .table-wrap .table
-     .hero .hero-title .hero-subtitle .btn .btn-secondary
+  TEACHING (Sections only)
+  Teaching landing page structured around the Teaching submenu:
+
+  1) Overview
+  2) Courses
+  3) Course Leadership
+  4) Curriculum & Accreditation
+  5) Course & Lab Development
+  6) Mentoring & Supervision
+  7) Continuing Education
+
+  Drop into teaching.html inside your existing layout (same styles.css).
 ========================================================= -->
 
 <!-- HERO -->
 <section id="teaching" class="hero">
   <div class="container">
-    <h1 class="hero-title">Teaching &amp; Educational Leadership</h1>
+    <h1 class="hero-title">Teaching</h1>
     <p class="hero-subtitle">
-      I teach across AI, cybersecurity, networking, and software engineering—designing courses that are
-      rigorous, practical, and supportive. I also lead coordination, curriculum development, and accreditation
-      efforts that strengthen programs at scale.
+      Rigorous, practice-driven learning across AI, cybersecurity, networking, and software engineering—supported
+      by thoughtful course design, scalable coordination, and ABET-aligned continuous improvement.
     </p>
 
     <div class="hero-actions">
-      <a class="btn" href="#roles">Key Roles</a>
-      <a class="btn btn-secondary" href="#kfupm-impact">KFUPM Impact</a>
-      <a class="btn btn-secondary" href="#courses-kfupm">Courses</a>
-      <a class="btn btn-secondary" href="#mentoring">Mentoring</a>
+      <a class="btn" href="#overview">Overview</a>
+      <a class="btn btn-secondary" href="#courses">Courses</a>
+      <a class="btn btn-secondary" href="#course-leadership">Leadership</a>
+      <a class="btn btn-secondary" href="#curriculum-accreditation">Curriculum &amp; ABET</a>
     </div>
   </div>
 </section>
 
-<!-- KEY ROLES (impressive, scannable) -->
-<section id="roles" class="section">
+<!-- SUBMENU / ON-PAGE NAV -->
+<section id="teaching-nav" class="section">
   <div class="container">
-    <div class="section-header">
-      <h2 class="section-title">Key Roles</h2>
-      <p class="section-subtitle">
-        Leadership positions and responsibilities that translate into measurable educational impact.
-      </p>
-    </div>
-
-    <div class="grid cards-grid">
-      <article class="card">
-        <div class="card-body">
-          <h3 class="card-title">Course Coordinator (Multi-Section Delivery)</h3>
-          <p class="card-text">
-            Led consistent delivery across large, multi-section offerings with aligned outcomes, assessments,
-            and instructional support.
-          </p>
-          <ul class="list">
-            <li><strong>ICS 104</strong> (203): 15 lecture + 15 lab sections</li>
-            <li><strong>ICS 343</strong> (242): 4 lecture + 6 lab sections</li>
-            <li><strong>ICS 344</strong> (251): 4 lecture sections</li>
-            <li>Additional coordination: ICS 432, SWE 363, SWE 344, SWE 399, ICS 102, ICS 103</li>
-          </ul>
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title">Teaching Menu</h2>
+        <p class="card-text">
+          Explore teaching roles and contributions through the sections below.
+        </p>
+        <div class="hero-actions" style="flex-wrap: wrap;">
+          <a class="btn btn-small" href="#overview">Overview</a>
+          <a class="btn btn-small" href="#courses">Courses</a>
+          <a class="btn btn-small" href="#course-leadership">Course Leadership</a>
+          <a class="btn btn-small" href="#curriculum-accreditation">Curriculum &amp; Accreditation</a>
+          <a class="btn btn-small" href="#development">Course &amp; Lab Development</a>
+          <a class="btn btn-small" href="#mentoring">Mentoring &amp; Supervision</a>
+          <a class="btn btn-small" href="#continuing-ed">Continuing Education</a>
         </div>
-      </article>
-
-      <article class="card">
-        <div class="card-body">
-          <h3 class="card-title">Chair, ABET/CAC Program Assessment Committee</h3>
-          <p class="card-text">
-            Guided ABET/CAC-aligned assessment and continuous improvement through coordinated data collection,
-            reporting, and program-level action plans.
-          </p>
-          <ul class="list">
-            <li>Chairing roles across multiple cycles (incl. 2008–2009, 2009–2010)</li>
-            <li>Coordinated department self-study preparation and amendments</li>
-            <li>Led/participated in CS &amp; SWE assessment-related tasks and documentation</li>
-          </ul>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="card-body">
-          <h3 class="card-title">ABET Self-Study Leadership (CS &amp; SWE)</h3>
-          <p class="card-text">
-            Contributed to and led efforts supporting ABET Self-Study Reports, ensuring alignment between
-            curriculum, outcomes, assessment evidence, and improvement actions.
-          </p>
-          <ul class="list">
-            <li>Preparing ABET Self-Study Report for <strong>Computer Science</strong> (181–202)</li>
-            <li>Leading ABET Self-Study Report for <strong>Software Engineering</strong> (181–202)</li>
-            <li>Curriculum revision of CS program (approved May 2020)</li>
-          </ul>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="card-body">
-          <h3 class="card-title">Innovative Teaching &amp; Digital Transformation</h3>
-          <p class="card-text">
-            Introduced active and inquiry-based learning approaches, technology-enhanced instruction,
-            and course sites with curated resources.
-          </p>
-          <ul class="list">
-            <li><strong>ICS 104</strong>: implemented IBL at scale (term 203)</li>
-            <li><strong>SWE 363</strong>: innovative teaching program (IBL; term 193)</li>
-            <li>Course websites on WebCT/Blackboard + dedicated resource pages</li>
-          </ul>
-        </div>
-      </article>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- KFUPM IMPACT (friendly + metrics-style without inventing numbers) -->
-<section id="kfupm-impact" class="section section-alt">
+<!-- 1) OVERVIEW -->
+<section id="overview" class="section section-alt">
   <div class="container">
     <div class="section-header">
-      <h2 class="section-title">KFUPM (2004–Present)</h2>
+      <h2 class="section-title">Overview</h2>
       <p class="section-subtitle">
-        College of Computer Sciences and Engineering — teaching, coordination, new course development,
-        and graduate supervision.
+        Teaching philosophy, footprint, and the learning experience I aim to create.
       </p>
     </div>
 
     <div class="grid two-col">
       <article class="card">
         <div class="card-body">
-          <h3 class="card-title">Teaching Footprint</h3>
+          <h3 class="card-title">Teaching at KFUPM (Since 2004)</h3>
           <p class="card-text">
-            I taught <strong>30+ courses</strong> across undergraduate, graduate, and professional masters programs,
-            spanning AI/ML, cybersecurity, networking, systems, and software engineering.
+            I have taught graduate and undergraduate courses at KFUPM since 2004—covering core curriculum,
+            electives, professional masters offerings, and research supervision. I taught 30+ courses and actively
+            contributed to course development, improvement, and coordination.
           </p>
           <ul class="list">
-            <li>Core + elective teaching across multiple curricula</li>
-            <li>Major revisions, new courses, and refreshed materials</li>
-            <li>Independent/directed research supervision</li>
-            <li>MS thesis + PhD dissertation supervision (multiple semesters)</li>
+            <li>AI/ML, cybersecurity, networking, systems, and software engineering</li>
+            <li>Active learning and inquiry-based learning (IBL) where appropriate</li>
+            <li>Course websites (WebCT/Blackboard) and curated resource pages</li>
           </ul>
         </div>
       </article>
 
       <article class="card">
         <div class="card-body">
-          <h3 class="card-title">Student Experience by Design</h3>
+          <h3 class="card-title">How Students Experience My Courses</h3>
           <p class="card-text">
-            My approach is structured and supportive: clear outcomes, authentic tasks, timely feedback,
-            and a learning environment where students can grow confidently.
+            I focus on clarity, fairness, and deep understanding—using structured learning progressions and
+            authentic tasks that mirror real professional practice.
           </p>
           <ul class="list">
-            <li>Transparent rubrics and assessment plans</li>
-            <li>Hands-on labs and project-based evaluation</li>
-            <li>Curated resources to encourage independent learning</li>
-            <li>Focus on professional readiness and ethical practice</li>
+            <li>Clear outcomes, transparent rubrics, and timely feedback</li>
+            <li>Hands-on labs, guided practice, and project-based evaluation</li>
+            <li>Curated links and tools that support independent learning</li>
+            <li>Supportive environment with high standards</li>
           </ul>
         </div>
       </article>
-    </div>
-  </div>
-</section>
-
-<!-- SIGNATURE THEMES (extendable "pillars") -->
-<section id="signature-themes" class="section">
-  <div class="container">
-    <div class="section-header">
-      <h2 class="section-title">Signature Themes</h2>
-      <p class="section-subtitle">
-        Recurring themes that shape my teaching and educational leadership.
-      </p>
     </div>
 
     <div class="grid cards-grid">
       <article class="card">
         <div class="card-body">
-          <h3 class="card-title">Security &amp; Trust</h3>
-          <p class="card-text">
-            From information assurance to network security and cryptography—connecting theory to realistic
-            threat models and defensive engineering.
-          </p>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="card-body">
-          <h3 class="card-title">AI with Real-World Discipline</h3>
-          <p class="card-text">
-            ML/AI courses and projects that emphasize sound evaluation, responsible use, and practical
-            deployment constraints.
-          </p>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="card-body">
-          <h3 class="card-title">Networks &amp; Systems Thinking</h3>
-          <p class="card-text">
-            Networking and systems courses that build intuition through labs, protocol analysis, and design
-            trade-offs.
-          </p>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="card-body">
-          <h3 class="card-title">Learning at Scale</h3>
-          <p class="card-text">
-            Multi-section coordination, consistent assessment, and instructional systems that support large
-            cohorts without losing quality or fairness.
-          </p>
+          <h3 class="card-title">Signature Teaching Themes</h3>
+          <ul class="list">
+            <li><strong>Security &amp; Trust:</strong> information assurance, network security, cryptography</li>
+            <li><strong>AI with Discipline:</strong> sound evaluation, responsible practice, deployment awareness</li>
+            <li><strong>Networks &amp; Systems Thinking:</strong> protocols, analysis, design trade-offs</li>
+            <li><strong>Learning at Scale:</strong> multi-section coordination with consistent quality</li>
+          </ul>
         </div>
       </article>
     </div>
   </div>
 </section>
 
-<!-- COURSES (KFUPM) — elegant tabs via cards (no JS needed) -->
-<section id="courses-kfupm" class="section section-alt">
+<!-- 2) COURSES -->
+<section id="courses" class="section">
   <div class="container">
     <div class="section-header">
-      <h2 class="section-title">Courses Taught at KFUPM</h2>
+      <h2 class="section-title">Courses</h2>
       <p class="section-subtitle">
-        Organized by level for readability. Extend by adding rows or new course groups.
+        Courses taught at KFUPM, organized by level for easy scanning and long-term maintainability.
       </p>
     </div>
 
@@ -220,7 +132,6 @@
           <p class="card-text">
             Professional masters, MS-level offerings, independent/directed research, and thesis/dissertation supervision.
           </p>
-
           <div class="table-wrap">
             <table class="table">
               <thead>
@@ -238,7 +149,7 @@
                 <tr><td>5</td><td>SEC 511-MX: Principles of Information Assurance and Security</td><td>201, 211</td></tr>
                 <tr><td>6</td><td>SEC 511: Principles of Information Assurance and Security (Major Revision)</td><td>151, 171, 182, 241 (Active), 252</td></tr>
                 <tr><td>7</td><td>SEC 521: Network Security (Developed New Course)</td><td>141, 161, 231 (MX: HIVE), 252</td></tr>
-                <tr><td>8</td><td>SEC 548: Watermarking and Steganography (Developed New Course)</td><td>132</td></tr>
+                <tr><td>8</td><td>SEC 548: Watermarking &amp; Steganography (Developed New Course)</td><td>132</td></tr>
                 <tr><td>9</td><td>ICS 583: Pattern Recognition (Major Revision)</td><td>122</td></tr>
                 <tr><td>10</td><td>ICS 555: Data Security and Cryptography (Major Revision)</td><td>091, 101, 191, 202</td></tr>
                 <tr><td>11</td><td>ICS 570: Advanced Computer Networking (Major Revision)</td><td>062, 072</td></tr>
@@ -319,38 +230,77 @@
   </div>
 </section>
 
-<!-- PROGRAM & CURRICULUM LEADERSHIP (strong framing) -->
-<section id="program-leadership" class="section">
+<!-- 3) COURSE LEADERSHIP -->
+<section id="course-leadership" class="section section-alt">
   <div class="container">
     <div class="section-header">
-      <h2 class="section-title">Program &amp; Curriculum Leadership</h2>
+      <h2 class="section-title">Course Leadership</h2>
       <p class="section-subtitle">
-        Designing and evaluating programs, shaping curriculum direction, and strengthening accreditation readiness.
+        Coordinating large offerings, aligning assessment, and ensuring consistent student experience across sections.
       </p>
     </div>
 
     <div class="grid two-col">
       <article class="card">
         <div class="card-body">
-          <h3 class="card-title">Programs, Tracks &amp; Concentrations</h3>
+          <h3 class="card-title">Coordination at Scale</h3>
           <ul class="list">
-            <li>Professional master (MX), Process Safety [232]</li>
-            <li>Professional master (MX), Cognitive Communications for Sustainable Networks &amp; Infrastructure [232]</li>
-            <li>Concentration (CX) on Smart Grids [232]</li>
-            <li>Professional master (MX) on Artificial Intelligence [192]</li>
-            <li>Professional master (MX) on Cybersecurity [192]</li>
+            <li><strong>ICS 344</strong> — 2025–2026 (Term 251), 4 lecture sections</li>
+            <li><strong>ICS 104</strong> — 2020–2021 (203), 15 lecture sections + 15 lab sections</li>
+            <li><strong>ICS 343</strong> — coordination across terms 062, 071, 102, 112, 172, 182, 242</li>
+            <li><strong>ICS 432</strong> — terms 041, 042, 061</li>
           </ul>
         </div>
       </article>
 
       <article class="card">
         <div class="card-body">
-          <h3 class="card-title">Assessment &amp; Accreditation</h3>
+          <h3 class="card-title">Consistency &amp; Quality</h3>
+          <ul class="list">
+            <li>Outcome-aligned assessments and shared rubrics</li>
+            <li>Common instructional resources and lab support</li>
+            <li>Continuous refinement based on student learning evidence</li>
+            <li>Innovation: Active Learning, HIVE, and IBL where appropriate</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 4) CURRICULUM & ACCREDITATION -->
+<section id="curriculum-accreditation" class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Curriculum &amp; Accreditation</h2>
+      <p class="section-subtitle">
+        ABET-aligned program assessment, curriculum revision, and program development initiatives.
+      </p>
+    </div>
+
+    <div class="grid two-col">
+      <article class="card">
+        <div class="card-body">
+          <h3 class="card-title">ABET &amp; Program Assessment</h3>
+          <ul class="list">
+            <li>Preparing ABET Self-Study Report for Computer Science (181–202)</li>
+            <li>Leading ABET Self-Study Report for SWE program (181–202)</li>
+            <li>Chairing ABET/CAC Program Assessment Committee (incl. 2008–2010)</li>
+            <li>Department coordination for self-study preparation and amendments</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-body">
+          <h3 class="card-title">Programs &amp; Curriculum Development</h3>
           <ul class="list">
             <li>CS curriculum revision (Approved May 2020)</li>
-            <li>ABET Self-Study support: CS (181–202)</li>
-            <li>ABET Self-Study leadership: SWE (181–202)</li>
-            <li>Chairing ABET/CAC Program Assessment Committee (incl. 2008–2010)</li>
+            <li>Professional master (MX) on Artificial Intelligence [192]</li>
+            <li>Professional master (MX) on Cybersecurity [192]</li>
+            <li>Professional master (MX), Process Safety [232]</li>
+            <li>Professional master (MX), Cognitive Communications for Sustainable Networks &amp; Infrastructure [232]</li>
+            <li>Concentration (CX) on Smart Grids [232]</li>
           </ul>
         </div>
       </article>
@@ -358,28 +308,28 @@
 
     <article class="card">
       <div class="card-body">
-        <h3 class="card-title">Institutional &amp; External Contributions (Selected)</h3>
+        <h3 class="card-title">Broader Evaluation &amp; Review Contributions</h3>
         <ul class="list">
-          <li>CS department feedback for KFUPM undergraduate Computer Engineering program revision (2018)</li>
-          <li>CS department feedback on KFUPM MS program in Architectural Engineering (2018)</li>
-          <li>Prince Noura University program review (Ad Hoc Committee; Subcommittee Coordinator), 2008–2009</li>
-          <li>BS Bioinformatics &amp; Computational Biology program development, KFUPM (2010)</li>
+          <li>Program review and evaluation: Prince Noura University (Ad Hoc Committee; Subcommittee Coordinator), 2008–2009</li>
+          <li>Feedback for KFUPM undergraduate Computer Engineering program revision (2018)</li>
+          <li>Feedback on newly developed KFUPM MS program in Architectural Engineering (2018)</li>
+          <li>BS Bioinformatics and Computational Biology program development, KFUPM (2010)</li>
           <li>MS Information Security &amp; Assurance programs development (2008–2010)</li>
           <li>Curriculum development support: Hail University (2004–2005)</li>
-          <li>Major curriculum revisions (KFUPM CS &amp; SWE, 2004–2007; SWE revision 2015–2016; CS revision 2016–2017)</li>
+          <li>Major curriculum revisions for CS &amp; SWE at KFUPM (2004–2007), SWE revision (2015–2016), CS revision (2016–2017)</li>
         </ul>
       </div>
     </article>
   </div>
 </section>
 
-<!-- DEVELOPMENT (New courses / manuals / notes) -->
-<section id="teaching-development" class="section section-alt">
+<!-- 5) COURSE & LAB DEVELOPMENT -->
+<section id="development" class="section section-alt">
   <div class="container">
     <div class="section-header">
       <h2 class="section-title">Course &amp; Lab Development</h2>
       <p class="section-subtitle">
-        Building new courses, modernizing curricula, and producing durable teaching assets.
+        New courses, major revisions, lab manuals, and continuously refined teaching assets.
       </p>
     </div>
 
@@ -388,20 +338,20 @@
         <div class="card-body">
           <h3 class="card-title">New Courses &amp; Major Revisions</h3>
           <ul class="list">
-            <li>ICS 104 — IBL program (digital transformation initiative)</li>
-            <li>SWE 363 — IBL innovative teaching initiative</li>
-            <li>SEC 511 — major revision and material development</li>
-            <li>SEC 521 — Network Security (new course)</li>
-            <li>SEC 548 — Watermarking &amp; Steganography (new course)</li>
-            <li>ICS 490 — Multimedia Data Compression (proposed, developed, offered)</li>
-            <li>ICS 343 — revised version of ICS 432</li>
+            <li>SEC 521: Network Security — developed and introduced at KFUPM</li>
+            <li>SEC 548: Watermarking &amp; Steganography — developed and introduced at KFUPM</li>
+            <li>SEC 511: Principles of IAS — major revision and material development</li>
+            <li>ICS 490: Special Topics — Multimedia Data Compression (proposed, developed, offered)</li>
+            <li>ICS 104: IBL program at scale (term 203)</li>
+            <li>SWE 363: IBL innovative teaching initiative (term 193)</li>
+            <li>ICS 343: revised version of ICS 432</li>
           </ul>
         </div>
       </article>
 
       <article class="card">
         <div class="card-body">
-          <h3 class="card-title">Laboratory Manuals</h3>
+          <h3 class="card-title">Lab Manuals</h3>
           <ul class="list">
             <li>Internet Protocols &amp; Client/Server Programming — KFUPM (2008)</li>
             <li>Computer Network Systems — KFUPM (2005)</li>
@@ -413,7 +363,7 @@
 
     <article class="card">
       <div class="card-body">
-        <h3 class="card-title">Teaching Notes (Selected, Continuously Refined)</h3>
+        <h3 class="card-title">Teaching Notes (Selected)</h3>
         <div class="table-wrap">
           <table class="table">
             <thead>
@@ -424,42 +374,41 @@
               <tr><td>AI &amp; ML for Robotics</td><td>2023</td></tr>
               <tr><td>Machine Learning</td><td>2022</td></tr>
               <tr><td>Biometric Systems</td><td>2022</td></tr>
-              <tr><td>Principles of IAS</td><td>2015; revised 2019</td></tr>
               <tr><td>Network Security</td><td>2014; revised 2023</td></tr>
-              <tr><td>Pattern Recognition</td><td>2013</td></tr>
+              <tr><td>Principles of AI</td><td>2012; revised 2013</td></tr>
               <tr><td>Operating Systems</td><td>2008</td></tr>
               <tr><td>Data Compression</td><td>2004</td></tr>
             </tbody>
           </table>
         </div>
         <p class="card-text">
-          I also contributed to revisions of ICS 102, ICS 201, and ICS 202. Every course is supported by
-          WebCT/Blackboard sites and (for selected courses) dedicated resource pages.
+          I also participated in revising materials for ICS 102, ICS 201, and ICS 202. Every course is supported by
+          WebCT/Blackboard sites and curated resource links.
         </p>
       </div>
     </article>
 
     <article class="card">
       <div class="card-body">
-        <h3 class="card-title">Textbook Evaluation &amp; Library Recommendations</h3>
+        <h3 class="card-title">Textbook Proposal / Evaluation</h3>
         <p class="card-text">
-          Evaluated and proposed textbooks for adoption across many CS/SWE courses (e.g., ICS102, ICS201,
-          ICS343/ICS432, SWE363, ICS454, ICS488, ICS490, ICS555, ICS570, ICS586), and recommended additional
-          titles to the KFUPM library in networking, security, cryptography, operating systems, evolutionary
-          computation, machine learning, soft computing, and data compression.
+          Evaluated and proposed textbooks for adoption across many undergraduate and graduate courses
+          (including ICS102, ICS201, ICS343/ICS432, SWE363, ICS454, ICS488, ICS490, ICS555, ICS570, ICS586),
+          and recommended additional titles to the KFUPM library in networking, security, cryptography,
+          operating systems, evolutionary computation, machine learning, soft computing, and data compression.
         </p>
       </div>
     </article>
   </div>
 </section>
 
-<!-- MENTORING & ADVISING -->
+<!-- 6) MENTORING & SUPERVISION -->
 <section id="mentoring" class="section">
   <div class="container">
     <div class="section-header">
-      <h2 class="section-title">Mentoring, Advising &amp; Student Development</h2>
+      <h2 class="section-title">Mentoring &amp; Supervision</h2>
       <p class="section-subtitle">
-        Supporting students through projects, research, training, and academic advising.
+        Supporting students through projects, advising, training evaluation, and research supervision.
       </p>
     </div>
 
@@ -473,8 +422,8 @@
             <li>Firewall Policy Editor &amp; Configuration Optimizer — Spring 2008 (2 students)</li>
             <li>Classroom Assessment Administration (Client/Server) — Spring 2005 (2 students)</li>
             <li>Interactive Image Compression Kit (ICTutor) — Fall 2004 (2 students)</li>
-            <li>Distributed Database Banking System — 2003–2004 (5 students)</li>
-            <li>Multimedia Distance Learning via Internet — 2002–2003 (6 students)</li>
+            <li>Distributed Database Banking System — Tanta University, 2003–2004 (5 students)</li>
+            <li>Multimedia Distance Learning via Internet — Tanta University, 2002–2003 (6 students)</li>
           </ul>
           <p class="card-text">Additionally, I participated in evaluating a number of other senior projects.</p>
         </div>
@@ -482,7 +431,7 @@
 
       <article class="card">
         <div class="card-body">
-          <h3 class="card-title">Advising, Training &amp; Evaluation</h3>
+          <h3 class="card-title">Advising &amp; Training Evaluation</h3>
           <ul class="list">
             <li>Academic advising: ~25–70 students per semester (2004–Present)</li>
             <li>Recommendation letters for graduate applications (2004–Present)</li>
@@ -496,13 +445,13 @@
   </div>
 </section>
 
-<!-- CONTINUING EDUCATION -->
-<section id="continuing-education" class="section section-alt">
+<!-- 7) CONTINUING EDUCATION -->
+<section id="continuing-ed" class="section section-alt">
   <div class="container">
     <div class="section-header">
-      <h2 class="section-title">Continuing Education &amp; Short Courses</h2>
+      <h2 class="section-title">Continuing Education</h2>
       <p class="section-subtitle">
-        Interdisciplinary programs and professional training initiatives.
+        Interdisciplinary short courses, professional development, and community engagement.
       </p>
     </div>
 
@@ -511,7 +460,7 @@
         <div class="card-body">
           <h3 class="card-title">KFUPM</h3>
           <ul class="list">
-            <li>“AI for Sustainability and Renewable Energy” — RETI (13–15 June 2023)</li>
+            <li>“Artificial Intelligence for Sustainability and Renewable Energy” — RETI (13–15 June 2023)</li>
             <li>Chair, ICS Standing Committee on Continuing Education &amp; Community Service (2005–2009)</li>
           </ul>
         </div>
@@ -531,80 +480,19 @@
   </div>
 </section>
 
-<!-- OTHER APPOINTMENTS (clean timeline style, extendable) -->
-<section id="other-appointments" class="section">
-  <div class="container">
-    <div class="section-header">
-      <h2 class="section-title">Other Teaching Appointments</h2>
-      <p class="section-subtitle">
-        A concise record of teaching roles before and alongside KFUPM.
-      </p>
-    </div>
-
-    <div class="grid cards-grid">
-      <article class="card">
-        <div class="card-body">
-          <h3 class="card-title">Tanta University, Egypt — Assistant Professor (02/2002–02/2004)</h3>
-          <ul class="list">
-            <li>Advanced Computer Systems (Graduate) — Spring 2003</li>
-            <li>Computer Networks (Senior) — Spring 2003</li>
-            <li>Data Structures &amp; Algorithm Analysis (Junior) — Fall 2002, Fall 2003</li>
-            <li>Testing &amp; Measurements Labs (Selected Topics / Web Programming) — 2002–2003</li>
-            <li>Computer Society (Sophomore) — Spring 2002</li>
-          </ul>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="card-body">
-          <h3 class="card-title">Delta Academy Computers Institute, Egypt — Assistant Professor (02/2002–02/2004)</h3>
-          <ul class="list">
-            <li>Software Packages (Senior) — Fall 2003 (Arabic &amp; English divisions)</li>
-            <li>Web Design (HTML, VBScript, JavaScript, ASP, ADO) + Visual Basic (Senior projects)</li>
-            <li>Intro to CS using Java — Fall 2003 (American Joint Program)</li>
-          </ul>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="card-body">
-          <h3 class="card-title">Stevens Institute of Technology, USA — Affiliated Instructor</h3>
-          <ul class="list">
-            <li>Logic of Program Design (Graduate) — Summer 2001</li>
-            <li>Intro to Computing (Freshman) — Summer 2000 (Lecture + Lab)</li>
-            <li>Program Design with Java (Honor Class) — Fall 2000 (Lecture + Lab)</li>
-            <li>Data Structures / Algorithms / OO in C++ — Spring 2001</li>
-            <li>ECE: Circuits I/II, Devices, Signals &amp; Systems — 1999–2000</li>
-          </ul>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="card-body">
-          <h3 class="card-title">Early Academic Roles (Egypt)</h3>
-          <ul class="list">
-            <li>Tanta University — Graduate Assistant &amp; Affiliated Instructor (1992–1997)</li>
-            <li>El-Mansoura University — Research Assistant (1991–1992)</li>
-          </ul>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- OPTIONAL CTA (friendly) -->
-<section id="teaching-cta" class="section section-alt">
+<!-- OPTIONAL FRIENDLY CTA -->
+<section id="teaching-cta" class="section">
   <div class="container">
     <div class="card">
       <div class="card-body">
-        <h3 class="card-title">Interested in Collaboration or Student Supervision?</h3>
+        <h3 class="card-title">Collaboration &amp; Student Supervision</h3>
         <p class="card-text">
-          I welcome opportunities to co-develop courses, co-supervise research, and support curriculum and
-          accreditation initiatives. Feel free to reach out through the contact page.
+          If you are interested in course collaboration, curriculum initiatives, or research supervision,
+          feel free to reach out through the contact page.
         </p>
         <div class="card-actions">
           <a class="btn" href="contact.html">Contact</a>
-          <a class="btn btn-secondary" href="#courses-kfupm">Browse courses</a>
+          <a class="btn btn-secondary" href="#courses">Browse Courses</a>
         </div>
       </div>
     </div>
