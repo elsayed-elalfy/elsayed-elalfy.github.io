@@ -392,3 +392,22 @@ if(route === "publications") initPublications();
 renderRoute();
 
 
+  // Mobile accordion: only one <details> open at a time
+  (function () {
+    const menu = document.getElementById("mobileMenu");
+    if (!menu) return;
+
+    const groups = Array.from(menu.querySelectorAll("details.mobileGroup"));
+
+    groups.forEach((d) => {
+      d.addEventListener("toggle", () => {
+        if (!d.open) return; // only react when opening
+
+        groups.forEach((other) => {
+          if (other !== d) other.open = false;
+        });
+      });
+    });
+  })();
+
+
