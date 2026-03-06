@@ -89,8 +89,56 @@
         </div>
       </nav>
 
+<!-- Social Media -->
 
-      
+        <!-- Topbar right actions: Social + Settings -->
+<div class="topbarActions">
+  <!-- Social (desktop) -->
+  <div class="socialBar socialBar--desktop" aria-label="Social links">
+    <a class="iconLink" href="mailto:YOUR_EMAIL@kfupm.edu.sa" aria-label="Email" title="Email">
+      ✉
+    </a>
+    <a class="iconLink" href="#" target="_blank" rel="noopener" aria-label="Google Scholar" title="Google Scholar">GS</a>
+    <a class="iconLink" href="#" target="_blank" rel="noopener" aria-label="ORCID" title="ORCID">ID</a>
+    <a class="iconLink" href="#" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">in</a>
+    <a class="iconLink" href="#" target="_blank" rel="noopener" aria-label="ResearchGate" title="ResearchGate">RG</a>
+    <a class="iconLink" href="#" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">GH</a>
+  </div>
+
+  <!-- Settings dropdown -->
+  <div class="navItem navItem--settings">
+    <button
+      id="settingsBtn"
+      class="settingsBtn"
+      type="button"
+      aria-haspopup="true"
+      aria-expanded="false"
+      aria-controls="settingsDropdown"
+      title="Settings"
+    >
+      ⚙ <span class="settingsBtn__label">Settings</span>
+    </button>
+
+    <div id="settingsDropdown" class="dropdown dropdown--settings" role="menu" aria-label="Settings">
+      <div class="ddSection">
+        <div class="ddTitle">Theme</div>
+        <button class="ddOption" type="button" data-theme="light" role="menuitem">Light</button>
+        <button class="ddOption" type="button" data-theme="dark" role="menuitem">Dark</button>
+        <button class="ddOption" type="button" data-theme="system" role="menuitem">System</button>
+      </div>
+
+      <div class="ddDivider"></div>
+
+      <div class="ddSection">
+        <div class="ddTitle">Language</div>
+        <button class="ddOption" type="button" data-lang="en" role="menuitem">English</button>
+        <button class="ddOption" type="button" data-lang="ar" role="menuitem">العربية</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End  -->
 
       <!-- Mobile menu button -->
       <button id="menuBtn" class="iconBtn" aria-label="Open menu" aria-expanded="false">
@@ -103,6 +151,49 @@
       <nav class="nav nav--mobile" aria-label="Mobile navigation">
         <a class="nav__link" href="#home" data-route="home">Home</a>
 
+        
+        
+        <!-- begin social -->
+
+        <!-- Mobile: Connect + Settings -->
+<div class="mobileUtilities">
+  <div class="mobileUtilities__row">
+    <div class="mobileUtilities__label">Connect</div>
+    <div class="socialBar socialBar--mobile" aria-label="Social links (mobile)">
+      <a class="iconLink" href="mailto:YOUR_EMAIL@kfupm.edu.sa" aria-label="Email" title="Email">✉</a>
+      <a class="iconLink" href="#" target="_blank" rel="noopener" aria-label="Google Scholar" title="Google Scholar">GS</a>
+      <a class="iconLink" href="#" target="_blank" rel="noopener" aria-label="ORCID" title="ORCID">ID</a>
+      <a class="iconLink" href="#" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">in</a>
+      <a class="iconLink" href="#" target="_blank" rel="noopener" aria-label="ResearchGate" title="ResearchGate">RG</a>
+      <a class="iconLink" href="#" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">GH</a>
+    </div>
+  </div>
+
+  <details class="mobileGroup mobileGroup--settings">
+    <summary>Settings</summary>
+    <div class="mobileSettings">
+      <div class="mobileSettings__block">
+        <div class="mobileSettings__title">Theme</div>
+        <div class="mobileSettings__buttons">
+          <button class="miniBtn" type="button" data-theme="light">Light</button>
+          <button class="miniBtn" type="button" data-theme="dark">Dark</button>
+          <button class="miniBtn" type="button" data-theme="system">System</button>
+        </div>
+      </div>
+
+      <div class="mobileSettings__block">
+        <div class="mobileSettings__title">Language</div>
+        <div class="mobileSettings__buttons">
+          <button class="miniBtn" type="button" data-lang="en">English</button>
+          <button class="miniBtn" type="button" data-lang="ar">العربية</button>
+        </div>
+      </div>
+    </div>
+  </details>
+</div>
+
+
+        <!-- end social  -->
         <details class="mobileGroup">
           <summary>Research <span aria-hidden="true"></span></summary>
           <a class="mobileSubLink" href="#research/overview" data-route="research">Overview</a>
