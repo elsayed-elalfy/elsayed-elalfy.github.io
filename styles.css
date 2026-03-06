@@ -800,4 +800,66 @@ body{
   background: rgba(43,102,255,0.12);
   border: 1px solid rgba(43,102,255,0.22);
 }
+
+
+/* =========================
+   Dark theme contrast fixes
+   (paste at END of styles.css)
+========================= */
+
+html[data-theme="dark"] body{
+  color: var(--text);
+}
+
+/* Any "dark" hardcoded text needs overriding */
+html[data-theme="dark"] .lead{ color: rgba(234,240,255,0.88); }
+html[data-theme="dark"] .muted{ color: rgba(234,240,255,0.68); }
+html[data-theme="dark"] .kicker{ color: rgba(234,240,255,0.65); }
+
+html[data-theme="dark"] .profileMeta{ color: rgba(234,240,255,0.72); }
+html[data-theme="dark"] .hlItemText{ color: rgba(234,240,255,0.72); }
+html[data-theme="dark"] .hlTag{ color: rgba(234,240,255,0.70); }
+
+/* Links */
+html[data-theme="dark"] a{ color: #9ab6ff; }
+html[data-theme="dark"] a:hover{ color: #c7d6ff; }
+
+/* Top nav links (they were #1f2a3a) */
+html[data-theme="dark"] .nav__link,
+html[data-theme="dark"] .dropdown a,
+html[data-theme="dark"] .mobileSubLink{
+  color: rgba(234,240,255,0.88);
+}
+html[data-theme="dark"] .nav__link:hover,
+html[data-theme="dark"] .dropdown a:hover{
+  background: rgba(255,255,255,0.06);
+}
+
+/* Borders/dividers in dark */
+html[data-theme="dark"] .profileHeader{
+  border-bottom: 1px solid rgba(255,255,255,0.10);
+}
+html[data-theme="dark"] .impactStrip{
+  border-top: 1px solid rgba(255,255,255,0.10);
+}
+html[data-theme="dark"] .impactStrip > div:not(:last-child)::after{
+  background: rgba(255,255,255,0.08);
+}
+
+/* Pills/buttons readability in dark */
+html[data-theme="dark"] .pill,
+html[data-theme="dark"] .miniLink,
+html[data-theme="dark"] .btn{
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.14);
+  color: rgba(234,240,255,0.90);
+}
+html[data-theme="dark"] .btn:hover{
+  background: rgba(255,255,255,0.09);
+}
+
+/* Dropdown background already set; ensure border visible */
+html[data-theme="dark"] .dropdown{
+  border-color: rgba(255,255,255,0.14);
+}
 /* social media end  */
