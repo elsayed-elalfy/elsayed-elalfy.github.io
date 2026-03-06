@@ -511,4 +511,22 @@ renderRoute();
     }, true);
   }
 })();
+
+
+
+const socialBtn = document.getElementById("socialBtn");
+const socialWrap = socialBtn?.closest(".navItem--social");
+
+if(socialBtn){
+  socialBtn.addEventListener("click", (e)=>{
+    e.stopPropagation();
+    socialWrap.classList.toggle("is-open");
+  });
+
+  document.addEventListener("click", (e)=>{
+    if(!socialWrap.contains(e.target)){
+      socialWrap.classList.remove("is-open");
+    }
+  });
+}
 // social media ends ---------------------------------
