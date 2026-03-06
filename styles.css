@@ -570,3 +570,187 @@ body{
   }
 }
 
+/* social media begin */
+/* =========================
+   Topbar actions: Social + Settings
+========================= */
+.topbarActions{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+}
+
+.socialBar{
+  display:flex;
+  align-items:center;
+  gap: 8px;
+}
+
+/* Show socials only on desktop, and inside mobileMenu on mobile */
+.socialBar--desktop{ display:flex; }
+@media (max-width: 900px){
+  .socialBar--desktop{ display:none; }
+}
+
+.iconLink{
+  width: 34px;
+  height: 34px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.10);
+  background: rgba(255,255,255,0.75);
+  text-decoration:none;
+  color: #1f2a3a;
+  font-weight: 900;
+  font-size: 0.78rem;
+  line-height: 1;
+}
+.iconLink:hover{
+  background: rgba(0,0,0,0.04);
+}
+
+/* Settings button */
+.settingsBtn{
+  display:inline-flex;
+  align-items:center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.12);
+  background: rgba(255,255,255,0.78);
+  cursor:pointer;
+  font-weight: 850;
+  color:#1f2a3a;
+}
+.settingsBtn__label{
+  font-size: 0.88rem;
+}
+@media (max-width: 900px){
+  .settingsBtn__label{ display:none; } /* keep it compact on mobile */
+}
+
+/* Settings dropdown sizing */
+.dropdown--settings{
+  min-width: 250px;
+  padding: 10px;
+}
+
+.ddSection{ display:flex; flex-direction:column; gap: 6px; }
+.ddTitle{
+  font-size: 0.78rem;
+  font-weight: 900;
+  color: rgba(0,0,0,0.55);
+  padding: 4px 6px;
+}
+.ddOption{
+  text-align:left;
+  width:100%;
+  padding: 10px 10px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background: transparent;
+  cursor:pointer;
+  font-weight: 750;
+  font-size: 0.86rem;
+  color: #1f2a3a;
+}
+.ddOption:hover{
+  background: rgba(0,0,0,0.04);
+}
+.ddOption.is-active{
+  background: rgba(43,102,255,0.10);
+  border-color: rgba(43,102,255,0.18);
+  color: #0b1b44;
+}
+.ddDivider{
+  height: 1px;
+  background: rgba(0,0,0,0.08);
+  margin: 10px 0;
+}
+
+/* Desktop dropdown behavior: keep hidden until open */
+.navItem--settings .dropdown{ display:none; }
+.navItem--settings.is-open .dropdown{ display:block; }
+
+/* =========================
+   Mobile utilities (Connect + Settings)
+========================= */
+.mobileUtilities{
+  margin: 6px 0 10px;
+  padding: 10px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: rgba(0,0,0,0.02);
+}
+.mobileUtilities__row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.mobileUtilities__label{
+  font-weight: 900;
+  font-size: 0.82rem;
+  color: rgba(0,0,0,0.62);
+}
+.socialBar--mobile .iconLink{
+  width: 32px;
+  height: 32px;
+  border-radius: 12px;
+  font-size: 0.74rem;
+}
+
+/* Smaller mobile menu fonts (you asked for this) */
+@media (max-width: 900px){
+  .nav--mobile .nav__link{
+    font-size: 0.92rem;   /* Home link */
+    padding: 8px 10px;
+  }
+  .mobileGroup summary{
+    font-size: 0.92rem;   /* group titles */
+    padding: 8px 10px;
+  }
+  .mobileSubLink{
+    font-size: 0.86rem;   /* sublinks */
+    padding: 8px 12px;
+  }
+}
+
+/* Mobile settings buttons */
+.mobileSettings{
+  padding: 8px 10px 2px;
+}
+.mobileSettings__block{
+  margin: 8px 0 10px;
+}
+.mobileSettings__title{
+  font-size: 0.78rem;
+  font-weight: 900;
+  color: rgba(0,0,0,0.55);
+  margin-bottom: 8px;
+}
+.mobileSettings__buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap: 8px;
+}
+.miniBtn{
+  border: 1px solid rgba(0,0,0,0.12);
+  background: rgba(255,255,255,0.85);
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-weight: 850;
+  font-size: 0.82rem;
+  cursor:pointer;
+}
+.miniBtn:hover{ background: rgba(0,0,0,0.04); }
+.miniBtn.is-active{
+  background: rgba(43,102,255,0.12);
+  border-color: rgba(43,102,255,0.22);
+  color: #0b1b44;
+}
+
+/* social media end  */
