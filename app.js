@@ -529,4 +529,66 @@ if(socialBtn){
     }
   });
 }
+
+
+
+// =========================
+// Theme switching (Light/Dark/System)
+// =========================
+(() => {
+  const STORAGE_KEY = "site-theme"; // "light" | "dark" | "system"
+  const root = document.documentElement;
+  const mq = window.matchMedia("(prefers-color-scheme: dark)");
+
+  function applyTheme(mode) {
+    // mode: "light" | "dark" | "system"
+    if (!mode) mode = "system";
+
+    if (mode === "system") {
+      const systemTheme = mq.matches ? "dark" : "light";
+      root.setAttribute("data-theme", systemTheme);
+    } else {
+      root.setAttribute("data-theme", mode);
+    }
+
+    // for accessibility / debugging
+    root.dataset.themeMode = mode; // optional
+  }
+
+  function setTheme(mode) {
+    localStorage.setItem(STORAGE_KEY, mode);
+    applyTheme(mode);
+    updateThemeUI(mode);
+  }
+
+  function getSavedTheme() {
+    return localStorage.getItem(STORAGE_KEY) || "system";
+  }
+
+  function updateThemeUI(mode) {
+    // highlight selected option if your dropdown uses .is-active
+    document.querySelectorAll("[data-theme]").forEach(btn => {
+      btn.classList.toggle("is-active", btn.dataset.theme === mode);
+    });
+  }
+
+  // Init on load
+  const initial = getSavedTheme();
+  applyTheme(initial);
+  updateThemeUI(initial);
+
+  // React to system changes only if user chose "system"
+  mq.addEventListener?.("change", () => {
+    const current = getSavedTheme();
+    if (current === "system") applyTheme("system");
+  });
+
+  // Click handlers
+  document.addEventListener("click", (e) => {
+    const el = e.target.closest("[data-theme]");
+    if (!el) return;
+    e.preventDefault();
+    setTheme(el.dataset.theme);
+  });
+})();
 // social media ends ---------------------------------
