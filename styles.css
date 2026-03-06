@@ -797,3 +797,18 @@ html[data-theme="dark"] .mobileMenu{
 @media (max-width: 900px){
   .socialBar--desktop{ display:none; }
 }
+
+
+
+
+
+
+/* Ensure header & dropdowns sit above the mobile menu layer */
+.topbar { z-index: 1000; }
+.topbar__inner { position: relative; z-index: 1001; }
+
+/* Mobile menu should be below dropdowns */
+.mobileMenu { position: relative; z-index: 900; }
+
+/* Dropdowns should be above everything */
+.dropdown { z-index: 2000; }
