@@ -394,4 +394,121 @@ renderRoute();
 
 
 
+// social media begins ------------------------------- 
+(function () {
+  const root = document.documentElement;
 
+  // ---------- Helpers ----------
+  const get = (k, fallback = null) => {
+    try { return localStorage.getItem(k) ?? fallback; } catch { return fallback; }
+  };
+  const set = (k, v) => {
+    try { localStorage.setItem(k, v); } catch {}
+  };
+
+  // ---------- Theme ----------
+  function applyTheme(mode) {
+    // mode: light | dark | system
+    const systemDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const resolved = (mode === "system") ? (systemDark ? "dark" : "light") : mode;
+
+    root.setAttribute("data-theme", resolved);
+    set("pref_theme_mode", mode);
+
+    // Mark active buttons
+    document.querySelectorAll("[data-theme]").forEach(btn => {
+      btn.classList.toggle("is-active", btn.getAttribute("data-theme") === mode);
+    });
+  }
+
+  // ---------- Language ----------
+  function applyLang(lang) {
+    // lang: en | ar
+    root.setAttribute("lang", lang);
+    root.setAttribute("dir", lang === "ar" ? "rtl" : "ltr");
+    set("pref_lang", lang);
+
+    document.querySelectorAll("[data-lang]").forEach(btn => {
+      btn.classList.toggle("is-active", btn.getAttribute("data-lang") === lang);
+    });
+
+    // OPTIONAL: if you later implement real translations, trigger a rerender here
+    // window.renderApp?.();
+  }
+
+  // ---------- Settings dropdown (desktop) ----------
+  const settingsBtn = document.getElementById("settingsBtn");
+  const settingsDropdown = document.getElementById("settingsDropdown");
+  const settingsWrap = settingsBtn?.closest(".navItem--settings");
+
+  function closeSettings() {
+    if (!settingsWrap) return;
+    settingsWrap.classList.remove("is-open");
+    settingsBtn?.setAttribute("aria-expanded", "false");
+  }
+
+  function toggleSettings() {
+    if (!settingsWrap) return;
+    const open = settingsWrap.classList.toggle("is-open");
+    settingsBtn?.setAttribute("aria-expanded", open ? "true" : "false");
+  }
+
+  if (settingsBtn) {
+    settingsBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleSettings();
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!settingsWrap) return;
+      if (!settingsWrap.contains(e.target)) closeSettings();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeSettings();
+    });
+  }
+
+  // Handle clicks on theme/lang options (desktop + mobile)
+  document.addEventListener("click", (e) => {
+    const themeBtn = e.target.closest("[data-theme]");
+    if (themeBtn) {
+      applyTheme(themeBtn.getAttribute("data-theme"));
+      return;
+    }
+    const langBtn = e.target.closest("[data-lang]");
+    if (langBtn) {
+      applyLang(langBtn.getAttribute("data-lang"));
+      return;
+    }
+  });
+
+  // Apply saved preferences
+  applyTheme(get("pref_theme_mode", "system"));
+  applyLang(get("pref_lang", "en"));
+
+  // Update theme on system change if mode==system
+  if (window.matchMedia) {
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
+      const mode = get("pref_theme_mode", "system");
+      if (mode === "system") applyTheme("system");
+    });
+  }
+
+  // ---------- Mobile: only one <details> open ----------
+  const mobileMenu = document.getElementById("mobileMenu");
+  if (mobileMenu) {
+    mobileMenu.addEventListener("toggle", (e) => {
+      const target = e.target;
+      if (target.tagName !== "DETAILS") return;
+      if (!target.open) return;
+
+      // Close siblings
+      mobileMenu.querySelectorAll("details[open]").forEach((d) => {
+        if (d !== target) d.open = false;
+      });
+    }, true);
+  }
+})();
+// social media ends ---------------------------------
