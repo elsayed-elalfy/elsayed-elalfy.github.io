@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Prof. El-Sayed M. El-Alfy | KFUPM</title>
+
+  <meta
+    name="description"
+    content="Prof. El-Sayed M. El-Alfy — KFUPM. Trustworthy and privacy-aware AI, robust vision systems, intelligent optimized, secure systems."
+  />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="topbar__inner">
+
+      <a class="brand" href="#home" data-route="home" aria-label="Go to Home">
+        <span class="brand__mark" aria-hidden="true"></span>
+        <span class="brand__text">El-Sayed M. El-Alfy</span>
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="nav nav--desktop" aria-label="Primary navigation">
+        <a class="nav__link" href="#home" data-route="home" data-i18n="nav.home">Home</a>
+
+        <div class="navItem">
+          <a class="nav__link nav__link--parent" href="#research" data-route="research" aria-haspopup="true">
+            <span data-i18n="nav.research">Research</span> <span class="caret" aria-hidden="true">▾</span>
+          </a>
+          <div class="dropdown" role="menu" aria-label="Research submenu">
+            <a href="#research/overview" data-route="research" role="menuitem" data-i18n="nav.overview">Overview</a>
+            <a href="#research/themes" data-route="research" role="menuitem" data-i18n="nav.themes">Themes</a>
+            <a href="#research/projects" data-route="research" role="menuitem" data-i18n="nav.projects">Projects</a>
+            <a href="#research/collaboration" data-route="research" role="menuitem" data-i18n="nav.collaboration">Collaboration</a>
+          </div>
+        </div>
+
+        <div class="navItem">
+          <a class="nav__link nav__link--parent" href="#publications" data-route="publications" aria-haspopup="true">
+            <span data-i18n="nav.publications">Publications</span> <span class="caret" aria-hidden="true">▾</span>
+          </a>
+          <div class="dropdown" role="menu" aria-label="Publications submenu">
+            <a href="#publications/overview" data-route="publications" role="menuitem" data-i18n="nav.overview">Overview</a>
+            <a href="#publications/journals" data-route="publications" role="menuitem" data-i18n="nav.journals">Journal Articles</a>
+            <a href="#publications/conferences" data-route="publications" role="menuitem" data-i18n="nav.conferences">Conference Papers</a>
+            <a href="#publications/patents" data-route="publications" role="menuitem" data-i18n="nav.patents">Patents</a>
+            <a href="#publications/books-chapters" data-route="publications" role="menuitem" data-i18n="nav.books">Books &amp; Chapters</a>
+            <a href="#publications/reports-other" data-route="publications" role="menuitem" data-i18n="nav.reports">Reports &amp; Others</a>
+          </div>
+        </div>
+
+        <div class="navItem">
+          <a class="nav__link nav__link--parent" href="#teaching" data-route="teaching" aria-haspopup="true">
+            <span data-i18n="nav.teaching">Teaching</span> <span class="caret" aria-hidden="true">▾</span>
+          </a>
+          <div class="dropdown" role="menu" aria-label="Teaching submenu">
+            <a href="#teaching/overview" data-route="teaching" role="menuitem" data-i18n="nav.overview">Overview</a>
+            <a href="#teaching/courses" data-route="teaching" role="menuitem" data-i18n="nav.courses">Courses</a>
+            <a href="#teaching/course-leadership" data-route="teaching" role="menuitem" data-i18n="nav.courseLeadership">Course Leadership</a>
+            <a href="#teaching/curriculum-accreditation" data-route="teaching" role="menuitem" data-i18n="nav.curriculumAccred">Curriculum &amp; Accreditation</a>
+            <a href="#teaching/development" data-route="teaching" role="menuitem" data-i18n="nav.courseLabDev">Course &amp; Lab Development</a>
+            <a href="#teaching/mentoring" data-route="teaching" role="menuitem" data-i18n="nav.mentoring">Mentoring &amp; Supervision</a>
+            <a href="#teaching/continuing-ed" data-route="teaching" role="menuitem" data-i18n="nav.contEd">Continuing Education</a>
+          </div>
+        </div>
+
+        <div class="navItem">
+          <a class="nav__link nav__link--parent" href="#service" data-route="service" aria-haspopup="true">
+            <span data-i18n="nav.service">Service</span> <span class="caret" aria-hidden="true">▾</span>
+          </a>
+          <div class="dropdown" role="menu" aria-label="Service submenu">
+            <a href="#service/overview" data-route="service" role="menuitem" data-i18n="nav.overview">Overview</a>
+            <a href="#service/editorial" data-route="service" role="menuitem" data-i18n="nav.editorial">Editorial</a>
+            <a href="#service/committees" data-route="service" role="menuitem" data-i18n="nav.committees">Committees</a>
+            <a href="#service/talks-events" data-route="service" role="menuitem" data-i18n="nav.talks">Talks &amp; Events</a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Topbar right actions -->
+      <div class="topbarActions">
+
+        <!-- Social dropdown -->
+        <div class="navItem navItem--social">
+          <button class="settingsBtn" id="socialBtn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="socialDropdown" title="Social">
+            🌐
+          </button>
+          <div class="dropdown dropdown--settings" id="socialDropdown" role="menu" aria-label="Social links">
+            <a class="ddOption" href="mailto:alfy@kfupm.edu.sa">Email</a>
+            <a class="ddOption" href="https://scholar.google.com/citations?user=2a51Yt8AAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+            <a class="ddOption" href="https://orcid.org/0000-0001-6279-9776" target="_blank" rel="noopener">ORCID</a>
+            <a class="ddOption" href="https://www.linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="ddOption" href="https://www.researchgate.net/profile/El-Sayed-El-Alfy-2" target="_blank" rel="noopener">ResearchGate</a>
+            <a class="ddOption" href="https://github.com" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+
+        <!-- Settings dropdown -->
+        <div class="navItem navItem--settings">
+          <button
+            id="settingsBtn"
+            class="settingsBtn"
+            type="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-controls="settingsDropdown"
+            title="Settings"
+          >
+            ⚙ <span class="settingsBtn__label" data-i18n="settings.button">Settings</span>
+          </button>
+
+          <div id="settingsDropdown" class="dropdown dropdown--settings" role="menu" aria-label="Settings">
+            <div class="ddSection">
+              <div class="ddTitle" data-i18n="settings.theme">Theme</div>
+              <button class="ddOption" type="button" data-theme="light" role="menuitem" data-i18n="settings.light">Light</button>
+              <button class="ddOption" type="button" data-theme="dark" role="menuitem" data-i18n="settings.dark">Dark</button>
+              <button class="ddOption" type="button" data-theme="system" role="menuitem" data-i18n="settings.system">System</button>
+            </div>
+
+            <div class="ddDivider"></div>
+
+            <div class="ddSection">
+              <div class="ddTitle" data-i18n="settings.language">Language</div>
+              <button class="ddOption" type="button" data-lang="en" role="menuitem">English</button>
+              <button class="ddOption" type="button" data-lang="ar" role="menuitem">العربية</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile menu button -->
+        <button id="menuBtn" class="iconBtn" aria-label="Open menu" aria-expanded="false">
+          <span aria-hidden="true">☰</span>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Mobile compressed menu -->
+    <div id="mobileMenu" class="mobileMenu" aria-hidden="true">
+      <nav class="nav nav--mobile" aria-label="Mobile navigation">
+        <a class="nav__link" href="#home" data-route="home" data-i18n="nav.home">Home</a>
+
+        <details class="mobileGroup">
+          <summary><span data-i18n="nav.research">Research</span></summary>
+          <a class="mobileSubLink" href="#research/overview" data-route="research" data-i18n="nav.overview">Overview</a>
+          <a class="mobileSubLink" href="#research/themes" data-route="research" data-i18n="nav.themes">Themes</a>
+          <a class="mobileSubLink" href="#research/projects" data-route="research" data-i18n="nav.projects">Projects</a>
+          <a class="mobileSubLink" href="#research/collaboration" data-route="research" data-i18n="nav.collaboration">Collaboration</a>
+        </details>
+
+        <details class="mobileGroup">
+          <summary><span data-i18n="nav.publications">Publications</span></summary>
+          <a class="mobileSubLink" href="#publications/overview" data-route="publications" data-i18n="nav.overview">Overview</a>
+          <a class="mobileSubLink" href="#publications/journals" data-route="publications" data-i18n="nav.journals">Journal Articles</a>
+          <a class="mobileSubLink" href="#publications/conferences" data-route="publications" data-i18n="nav.conferences">Conference Papers</a>
+          <a class="mobileSubLink" href="#publications/patents" data-route="publications" data-i18n="nav.patents">Patents</a>
+          <a class="mobileSubLink" href="#publications/books-chapters" data-route="publications" data-i18n="nav.books">Books &amp; Chapters</a>
+          <a class="mobileSubLink" href="#publications/reports-other" data-route="publications" data-i18n="nav.reports">Reports &amp; Others</a>
+        </details>
+
+        <details class="mobileGroup">
+          <summary><span data-i18n="nav.teaching">Teaching</span></summary>
+          <a class="mobileSubLink" href="#teaching/overview" data-route="teaching" data-i18n="nav.overview">Overview</a>
+          <a class="mobileSubLink" href="#teaching/courses" data-route="teaching" data-i18n="nav.courses">Courses</a>
+          <a class="mobileSubLink" href="#teaching/course-leadership" data-route="teaching" data-i18n="nav.courseLeadership">Course Leadership</a>
+          <a class="mobileSubLink" href="#teaching/curriculum-accreditation" data-route="teaching" data-i18n="nav.curriculumAccred">Curriculum &amp; Accreditation</a>
+          <a class="mobileSubLink" href="#teaching/development" data-route="teaching" data-i18n="nav.courseLabDev">Course &amp; Lab Development</a>
+          <a class="mobileSubLink" href="#teaching/mentoring" data-route="teaching" data-i18n="nav.mentoring">Mentoring &amp; Supervision</a>
+          <a class="mobileSubLink" href="#teaching/continuing-ed" data-route="teaching" data-i18n="nav.contEd">Continuing Education</a>
+        </details>
+
+        <details class="mobileGroup">
+          <summary><span data-i18n="nav.service">Service</span></summary>
+          <a class="mobileSubLink" href="#service/overview" data-route="service" data-i18n="nav.overview">Overview</a>
+          <a class="mobileSubLink" href="#service/editorial" data-route="service" data-i18n="nav.editorial">Editorial</a>
+          <a class="mobileSubLink" href="#service/committees" data-route="service" data-i18n="nav.committees">Committees</a>
+          <a class="mobileSubLink" href="#service/talks-events" data-route="service" data-i18n="nav.talks">Talks &amp; Events</a>
+        </details>
+      </nav>
+    </div>
+  </header>
+
+  <main class="shell" id="app" tabindex="-1" aria-live="polite">
+    <section class="skeleton">
+      <div class="skeleton__bar"></div>
+      <div class="skeleton__bar short"></div>
+      <div class="skeleton__grid">
+        <div class="skeleton__card"></div>
+        <div class="skeleton__card"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    © <span id="year"></span> <span data-i18n="footer.copy">Prof. El-Sayed M. El-Alfy — KFUPM</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
