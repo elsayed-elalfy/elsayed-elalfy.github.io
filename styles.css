@@ -1100,3 +1100,21 @@ html[data-theme="dark"] #settingsDropdown .ddOption.is-active{
   border: 1px solid rgba(43,102,255,0.22);
 }
 /* social media end  */
+
+
+/* Match the HTML: you use .h3 in home.html */
+.h3{
+  font-size: 1.35rem;
+  margin: 0 0 10px;
+  font-weight: 900;
+  line-height: 1.25;
+}
+
+/* You use .profileLinks but CSS targets .links */
+.profileLinks a{
+  text-decoration: none;
+  font-weight: 850;
+}
+.profileLinks a:hover{
+  text-decoration: underline;
+}
