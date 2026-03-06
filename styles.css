@@ -794,4 +794,10 @@ body{
 .navItem--social.is-open .dropdown{
   display:block;
 }
+
+
+.ddOption.is-active{
+  background: rgba(43,102,255,0.12);
+  border: 1px solid rgba(43,102,255,0.22);
+}
 /* social media end  */
