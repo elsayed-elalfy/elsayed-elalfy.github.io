@@ -368,22 +368,44 @@ document.addEventListener("keydown", (e) => {
 });
 
 /* Theme/lang click handler (works for both desktop + mobile UIs) */
-document.addEventListener("click", (e) => {
-  const t = e.target.closest("[data-theme]");
-  if (t) {
-    applyTheme(t.getAttribute("data-theme"));
-    return;
-  }
-  const l = e.target.closest("[data-lang]");
-  if (l) {
-    applyI18n(l.getAttribute("data-lang"));
+// document.addEventListener("click", (e) => {
+//   const t = e.target.closest("[data-theme]");
+//   if (t) {
+//     applyTheme(t.getAttribute("data-theme"));
+//     return;
+//   }
+//   const l = e.target.closest("[data-lang]");
+//   if (l) {
+//     applyI18n(l.getAttribute("data-lang"));
 
-    // after changing language, re-apply translations in loaded partial
-    // (needed because #app contents are already in DOM)
-    applyI18n(getPref(STORAGE_LANG_KEY, "en"));
+//     // after changing language, re-apply translations in loaded partial
+//     // (needed because #app contents are already in DOM)
+//     applyI18n(getPref(STORAGE_LANG_KEY, "en"));
+//     return;
+//   }
+// });
+
+// Theme/lang click handler (CAPTURE so it runs before dropdown close handlers)
+document.addEventListener("click", (e) => {
+  const themeBtn = e.target.closest("[data-theme]");
+  if (themeBtn) {
+    e.preventDefault();
+    e.stopPropagation();
+    applyTheme(themeBtn.getAttribute("data-theme"));
     return;
   }
-});
+
+  const langBtn = e.target.closest("[data-lang]");
+  if (langBtn) {
+    e.preventDefault();
+    e.stopPropagation();
+    applyI18n(langBtn.getAttribute("data-lang"));
+
+    // close dropdown after selection
+    closeSettingsDropdown?.();
+    return;
+  }
+}, true);
 
 /* System theme change if user selected system */
 window.matchMedia?.("(prefers-color-scheme: dark)")?.addEventListener?.("change", () => {
