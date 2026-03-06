@@ -138,7 +138,7 @@ body{
   text-decoration:none;
   color: #1f2a3a;
   font-weight: 650;
-  font-size: 0.92rem;
+  font-size: 0.75rem;
 }
 .dropdown a:hover{ background: rgba(0,0,0,0.04); }
 
