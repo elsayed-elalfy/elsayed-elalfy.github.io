@@ -1,4 +1,4 @@
-/* app.js — cleaned + mobile menu fixed (touch-safe) */
+/* app.js — cleaned, complete, and mobile-safe (menus + settings + theme/lang + routing) */
 
 /* -------------------------
    Tiny DOM helpers
@@ -17,39 +17,61 @@ const mobileMenu = $("#mobileMenu");
 /* set year */
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+/* -------------------------
+   Desktop dropdown wrappers
+--------------------------*/
+const settingsBtn = $("#settingsBtn");
+const socialBtn = $("#socialBtn");
+const settingsWrap = settingsBtn?.closest(".navItem--settings") || null;
+const socialWrap = socialBtn?.closest(".navItem--social") || null;
+
 /* =========================
-   Mobile menu open/close
+   Close helpers (single source)
 ========================= */
 function closeMobileMenu() {
   if (!mobileMenu || !menuBtn) return;
-
   mobileMenu.classList.remove("is-open");
   mobileMenu.setAttribute("aria-hidden", "true");
   menuBtn.setAttribute("aria-expanded", "false");
 
-  // collapse any open <details>
-  mobileMenu.querySelectorAll("details[open]").forEach(d => (d.open = false));
+  // collapse any open detail groups
+  mobileMenu.querySelectorAll("details[open]").forEach((d) => (d.open = false));
 }
 
-function openMobileMenu() {
-  if (!mobileMenu || !menuBtn) return;
-
-  mobileMenu.classList.add("is-open");
-  mobileMenu.setAttribute("aria-hidden", "false");
-  menuBtn.setAttribute("aria-expanded", "true");
+function closeSettings() {
+  if (!settingsWrap) return;
+  settingsWrap.classList.remove("is-open");
+  settingsBtn?.setAttribute("aria-expanded", "false");
 }
 
+function closeSocial() {
+  if (!socialWrap) return;
+  socialWrap.classList.remove("is-open");
+  socialBtn?.setAttribute("aria-expanded", "false");
+}
+
+function closeDesktopDropdowns() {
+  closeSettings();
+  closeSocial();
+}
+
+/* =========================
+   Mobile menu toggle
+   - Opening mobile closes desktop dropdowns
+========================= */
 function toggleMobileMenu() {
   if (!mobileMenu || !menuBtn) return;
+
+  // If opening, close desktop dropdowns so nothing stacks behind
+  const willOpen = !mobileMenu.classList.contains("is-open");
+  if (willOpen) closeDesktopDropdowns();
+
   const open = mobileMenu.classList.toggle("is-open");
   mobileMenu.setAttribute("aria-hidden", open ? "false" : "true");
   menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
-
-  if (!open) {
-    mobileMenu.querySelectorAll("details[open]").forEach(d => (d.open = false));
-  }
 }
 
+/* Mobile menu button */
 if (menuBtn) {
   menuBtn.addEventListener("click", (e) => {
     e.preventDefault();
@@ -84,6 +106,7 @@ function focusMain() {
   if (appEl) appEl.focus({ preventScroll: true });
 }
 
+/* Wait until an element exists (helpful after innerHTML replace) */
 function waitForElementById(id, timeoutMs = 1200) {
   const start = performance.now();
   return new Promise((resolve) => {
@@ -97,6 +120,7 @@ function waitForElementById(id, timeoutMs = 1200) {
   });
 }
 
+/* Scroll helper */
 async function scrollToSection(sectionId) {
   if (!sectionId) {
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
@@ -116,10 +140,15 @@ async function scrollToSection(sectionId) {
 function normalizeInPageAnchors(route) {
   $$('a[href^="#"]').forEach((a) => {
     const href = a.getAttribute("href");
-    if (!href) return;
+    if (!href || !href.startsWith("#")) return;
 
-    // Already #route/section
+    // Already in the form #route/section
     if (/^#[^/]+\/.+/.test(href)) return;
+
+    // Don't rewrite top-level routes like #home/#research/#publications...
+    const topRoutes = ["home", "research", "publications", "teaching", "service"];
+    const token = href.slice(1).toLowerCase();
+    if (topRoutes.includes(token)) return;
 
     // Convert plain #section to #route/section
     if (href.length > 1 && !href.includes("/")) {
@@ -169,7 +198,9 @@ let hlIndex = 0;
 let hlTimer = null;
 
 function setDots(i) {
-  $$(".hlDots .dot").forEach((d, idx) => d.classList.toggle("is-active", idx === i));
+  $$(".hlDots .dot").forEach((d, idx) =>
+    d.classList.toggle("is-active", idx === i)
+  );
 }
 
 function renderHighlight(i) {
@@ -178,9 +209,12 @@ function renderHighlight(i) {
   const title = $("#hlItemTitle");
   const text = $("#hlItemText");
   const link = $("#hlItemLink");
+
   if (!img || !title || !text || !link) return;
 
-  img.onerror = () => (img.src = "assets/portrait.jpg");
+  img.onerror = () => {
+    img.src = "assets/portrait.jpg";
+  };
   img.src = item.img;
   img.alt = item.title;
 
@@ -198,6 +232,7 @@ function startRotation() {
     renderHighlight(hlIndex);
   }, 6000);
 }
+
 function stopRotation() {
   if (hlTimer) clearInterval(hlTimer);
   hlTimer = null;
@@ -205,7 +240,6 @@ function stopRotation() {
 
 function initHomeHighlights() {
   if (!$("#hlImg")) return;
-
   hlIndex = 0;
   renderHighlight(0);
   startRotation();
@@ -220,7 +254,7 @@ function initHomeHighlights() {
 }
 
 /* =========================
-   Publications (unchanged)
+   Publications helpers
 ========================= */
 function initPublications() {
   const metricsEl = document.getElementById("pubMetricsData");
@@ -245,11 +279,11 @@ function initPublications() {
   const searchEl = document.getElementById("pubSearch");
   const resetBtn = document.getElementById("pubReset");
   const items = Array.from(document.querySelectorAll(".pubItem"));
-
   if (!yearSel || !topicSel || !searchEl || !resetBtn || items.length === 0) return;
 
-  const years = Array.from(new Set(items.map(n => n.dataset.year).filter(Boolean)))
-    .sort((a, b) => Number(b) - Number(a));
+  const years = Array.from(new Set(items.map((n) => n.dataset.year).filter(Boolean))).sort(
+    (a, b) => Number(b) - Number(a)
+  );
   for (const y of years) {
     const opt = document.createElement("option");
     opt.value = y;
@@ -261,9 +295,9 @@ function initPublications() {
   for (const n of items) {
     const topics = (n.dataset.topics || "")
       .split(",")
-      .map(s => s.trim())
+      .map((s) => s.trim())
       .filter(Boolean);
-    topics.forEach(t => topicSet.add(t));
+    topics.forEach((t) => topicSet.add(t));
   }
   const topics = Array.from(topicSet).sort((a, b) => a.localeCompare(b));
   for (const t of topics) {
@@ -283,18 +317,17 @@ function initPublications() {
       const nt = (n.dataset.topics || "").toLowerCase();
       const text = (n.textContent || "").toLowerCase();
 
-      const okYear = (y === "all") || (ny === y);
-      const okTopic = (t === "all") || nt.includes(t.toLowerCase());
-      const okSearch = (!q) || text.includes(q);
+      const okYear = y === "all" || ny === y;
+      const okTopic = t === "all" || nt.includes(t.toLowerCase());
+      const okSearch = !q || text.includes(q);
 
-      n.style.display = (okYear && okTopic && okSearch) ? "" : "none";
+      n.style.display = okYear && okTopic && okSearch ? "" : "none";
     }
   }
 
   yearSel.addEventListener("change", applyFilter);
   topicSel.addEventListener("change", applyFilter);
   searchEl.addEventListener("input", applyFilter);
-
   resetBtn.addEventListener("click", () => {
     yearSel.value = "all";
     topicSel.value = "all";
@@ -306,7 +339,7 @@ function initPublications() {
 }
 
 /* =========================
-   Routing
+   Routing: load partials, init per-page scripts
 ========================= */
 async function renderRoute() {
   const { route, section } = parseHash();
@@ -339,6 +372,7 @@ async function renderRoute() {
     `;
   }
 
+  // page init
   if (route === "home") initHomeHighlights();
   if (route === "publications") initPublications();
 
@@ -347,223 +381,186 @@ async function renderRoute() {
   focusMain();
 }
 
-/* hash navigation */
+/* On hash change: close overlays + rerender */
 window.addEventListener("hashchange", () => {
   closeMobileMenu();
+  closeDesktopDropdowns();
   renderRoute();
 });
 
-/* initial render */
+/* Initial render */
 renderRoute();
 
 /* =========================
-   Theme + Language
+   Theme + Language system
+   - default light (resolved)
+   - stores mode (light/dark/system) in localStorage
 ========================= */
-(function settingsThemeLang() {
+(function themeLang() {
   const root = document.documentElement;
-  const STORAGE_THEME_KEY = "pref_theme_mode"; // light|dark|system
-  const STORAGE_LANG_KEY = "pref_lang";       // en|ar
+  const KEY_THEME = "pref_theme_mode"; // light|dark|system
+  const KEY_LANG = "pref_lang"; // en|ar
 
-  const get = (k, fallback = null) => {
-    try { return localStorage.getItem(k) ?? fallback; } catch { return fallback; }
+  const get = (k, fallback) => {
+    try {
+      return localStorage.getItem(k) ?? fallback;
+    } catch {
+      return fallback;
+    }
   };
   const set = (k, v) => {
-    try { localStorage.setItem(k, v); } catch {}
+    try {
+      localStorage.setItem(k, v);
+    } catch {}
   };
 
   function resolveTheme(mode) {
-    const systemDark = window.matchMedia?.("(prefers-color-scheme: dark)").matches;
+    const systemDark =
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches;
     if (mode === "system") return systemDark ? "dark" : "light";
     return mode === "dark" ? "dark" : "light";
   }
 
-  function applyTheme(mode = "system") {
+  function applyTheme(mode) {
+    if (!mode) mode = "light"; // ✅ default light
     const resolved = resolveTheme(mode);
     root.setAttribute("data-theme", resolved);
-    set(STORAGE_THEME_KEY, mode);
+    set(KEY_THEME, mode);
 
-    document.querySelectorAll("[data-theme]").forEach(btn => {
+    document.querySelectorAll("[data-theme]").forEach((btn) => {
       btn.classList.toggle("is-active", btn.getAttribute("data-theme") === mode);
     });
   }
 
-  function applyLang(lang = "en") {
+  function applyLang(lang) {
+    if (!lang) lang = "en";
     root.setAttribute("lang", lang);
     root.setAttribute("dir", lang === "ar" ? "rtl" : "ltr");
-    set(STORAGE_LANG_KEY, lang);
+    set(KEY_LANG, lang);
 
-    document.querySelectorAll("[data-lang]").forEach(btn => {
+    document.querySelectorAll("[data-lang]").forEach((btn) => {
       btn.classList.toggle("is-active", btn.getAttribute("data-lang") === lang);
     });
   }
 
+  // handle option clicks (works for both desktop dropdown and any future mobile settings)
   document.addEventListener("click", (e) => {
     const themeBtn = e.target.closest("[data-theme]");
-    if (themeBtn) applyTheme(themeBtn.getAttribute("data-theme"));
-
-    const langBtn = e.target.closest("[data-lang]");
-    if (langBtn) applyLang(langBtn.getAttribute("data-lang"));
-  });
-
-  applyTheme(get(STORAGE_THEME_KEY, "system"));
-  applyLang(get(STORAGE_LANG_KEY, "en"));
-
-  window.matchMedia?.("(prefers-color-scheme: dark)")?.addEventListener("change", () => {
-    const mode = get(STORAGE_THEME_KEY, "system");
-    if (mode === "system") applyTheme("system");
-  });
-})();
-
-/* =========================
-   Desktop dropdowns: Settings + Social
-========================= */
-// (function dropdownWiring() {
-//   const settingsBtn = document.getElementById("settingsBtn");
-//   const settingsWrap = settingsBtn?.closest(".navItem--settings");
-
-//   const socialBtn = document.getElementById("socialBtn");
-//   const socialWrap = socialBtn?.closest(".navItem--social");
-
-//   function closeAll() {
-//     settingsWrap?.classList.remove("is-open");
-//     socialWrap?.classList.remove("is-open");
-//     settingsBtn?.setAttribute("aria-expanded", "false");
-//     socialBtn?.setAttribute("aria-expanded", "false");
-//   }
-
-//   function toggleWrap(btn, wrap) {
-//     if (!btn || !wrap) return;
-//     const open = wrap.classList.toggle("is-open");
-//     btn.setAttribute("aria-expanded", open ? "true" : "false");
-//   }
-
-//   settingsBtn?.addEventListener("click", (e) => {
-//     e.preventDefault();
-//     e.stopPropagation();
-//     // close other
-//     socialWrap?.classList.remove("is-open");
-//     socialBtn?.setAttribute("aria-expanded", "false");
-//     toggleWrap(settingsBtn, settingsWrap);
-//   });
-
-(function dropdownWiring() {
-  const settingsBtn = document.getElementById("settingsBtn");
-  const settingsWrap = settingsBtn?.closest(".navItem--settings");
-
-  const socialBtn = document.getElementById("socialBtn");
-  const socialWrap = socialBtn?.closest(".navItem--social");
-
-  function closeAll() {
-    settingsWrap?.classList.remove("is-open");
-    socialWrap?.classList.remove("is-open");
-    settingsBtn?.setAttribute("aria-expanded", "false");
-    socialBtn?.setAttribute("aria-expanded", "false");
-  }
-
-  function toggleWrap(btn, wrap) {
-    if (!btn || !wrap) return;
-    const open = wrap.classList.toggle("is-open");
-    btn.setAttribute("aria-expanded", open ? "true" : "false");
-  }
-
-  settingsBtn?.addEventListener("click", (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-
-    // ✅ IMPORTANT: if mobile menu is open, close it first
-    closeMobileMenu();
-
-    // close other
-    socialWrap?.classList.remove("is-open");
-    socialBtn?.setAttribute("aria-expanded", "false");
-
-    toggleWrap(settingsBtn, settingsWrap);
-  });
-
-  socialBtn?.addEventListener("click", (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-
-    // ✅ IMPORTANT: if mobile menu is open, close it first
-    closeMobileMenu();
-
-    // close other
-    settingsWrap?.classList.remove("is-open");
-    settingsBtn?.setAttribute("aria-expanded", "false");
-
-    toggleWrap(socialBtn, socialWrap);
-  });
-
-  document.addEventListener("click", () => closeAll());
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeAll();
-  });
-})();
-
-
-  socialBtn?.addEventListener("click", (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    // close other
-    settingsWrap?.classList.remove("is-open");
-    settingsBtn?.setAttribute("aria-expanded", "false");
-    toggleWrap(socialBtn, socialWrap);
-  });
-
-  document.addEventListener("click", () => closeAll());
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeAll();
-  });
-})();
-
-/* =========================
-   Mobile menu behavior (FIX)
-   - Accordion: only one <details> open
-   - Tap a link: close menu & allow navigation
-   - Outside tap: close menu (touch-safe)
-========================= */
-(function mobileMenuFix() {
-  if (!mobileMenu) return;
-
-  // Delegated click: summary vs link
-  mobileMenu.addEventListener("click", (e) => {
-    const summary = e.target.closest("summary");
-    if (summary) {
-      const details = summary.closest("details");
-      if (!details) return;
-
-      // Wait a tick for browser to set details.open, then close others
-      setTimeout(() => {
-        if (!details.open) return;
-        mobileMenu.querySelectorAll("details[open]").forEach(d => {
-          if (d !== details) d.open = false;
-        });
-      }, 0);
+    if (themeBtn) {
+      applyTheme(themeBtn.getAttribute("data-theme"));
       return;
     }
-
-    const link = e.target.closest("a");
-    if (link) {
-      // Let hash change happen naturally, just close UI
-      closeMobileMenu();
+    const langBtn = e.target.closest("[data-lang]");
+    if (langBtn) {
+      applyLang(langBtn.getAttribute("data-lang"));
+      return;
     }
   });
 
-  // Outside tap close (use composedPath for mobile reliability)
+  // init
+  applyTheme(get(KEY_THEME, "light")); // ✅ default light
+  applyLang(get(KEY_LANG, "en"));
+
+  // update if system changes and mode is system
+  if (window.matchMedia) {
+    window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", () => {
+        const mode = get(KEY_THEME, "light");
+        if (mode === "system") applyTheme("system");
+      });
+  }
+})();
+
+/* =========================
+   Desktop dropdown wiring
+   - Opening one closes the other
+   - Opening either closes mobile menu (important!)
+========================= */
+(function dropdownWire() {
+  // SETTINGS
+  if (settingsBtn && settingsWrap) {
+    settingsBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      // ✅ if mobile menu is open, close it so dropdown is not behind
+      closeMobileMenu();
+      // ✅ close social if open
+      closeSocial();
+
+      const open = settingsWrap.classList.toggle("is-open");
+      settingsBtn.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+  }
+
+  // SOCIAL
+  if (socialBtn && socialWrap) {
+    socialBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      closeMobileMenu();
+      closeSettings();
+
+      const open = socialWrap.classList.toggle("is-open");
+      socialBtn.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+  }
+
+  // outside click closes both
   document.addEventListener("click", (e) => {
-    if (!mobileMenu.classList.contains("is-open")) return;
-
-    const path = e.composedPath ? e.composedPath() : [];
-    const clickedInsideMenu = path.includes(mobileMenu) || mobileMenu.contains(e.target);
-    const clickedMenuBtn = path.includes(menuBtn) || e.target === menuBtn || menuBtn?.contains(e.target);
-
-    if (!clickedInsideMenu && !clickedMenuBtn) {
-      closeMobileMenu();
+    if (settingsWrap && settingsWrap.classList.contains("is-open")) {
+      if (!settingsWrap.contains(e.target)) closeSettings();
     }
-  });
-
-  // Escape closes menu
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeMobileMenu();
+    if (socialWrap && socialWrap.classList.contains("is-open")) {
+      if (!socialWrap.contains(e.target)) closeSocial();
+    }
   });
 })();
+
+/* =========================
+   Mobile <details> accordion
+   - only one open at a time
+   - close menu on link click
+========================= */
+(function mobileAccordion() {
+  if (!mobileMenu) return;
+
+  const groups = Array.from(mobileMenu.querySelectorAll("details.mobileGroup"));
+
+  // only one open
+  groups.forEach((d) => {
+    d.addEventListener("toggle", () => {
+      if (!d.open) return;
+      groups.forEach((other) => {
+        if (other !== d) other.open = false;
+      });
+    });
+  });
+
+  // close menu when clicking any link inside it
+  mobileMenu.querySelectorAll("a").forEach((a) => {
+    a.addEventListener("click", () => {
+      closeMobileMenu();
+    });
+  });
+
+  // click outside closes mobile menu
+  document.addEventListener("click", (e) => {
+    if (!mobileMenu.classList.contains("is-open")) return;
+    if (mobileMenu.contains(e.target)) return;
+    if (menuBtn && menuBtn.contains(e.target)) return;
+    closeMobileMenu();
+  });
+})();
+
+/* =========================
+   ESC closes everything
+========================= */
+document.addEventListener("keydown", (e) => {
+  if (e.key !== "Escape") return;
+  closeMobileMenu();
+  closeDesktopDropdowns();
+});
