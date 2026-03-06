@@ -347,17 +347,17 @@ if (socialBtn) {
 }
 
 /* Outside click closes dropdowns */
-document.addEventListener("click", (e) => {
-  if (settingsWrap && !settingsWrap.contains(e.target)) closeSettingsDropdown();
-  if (socialWrap && !socialWrap.contains(e.target)) closeSocialDropdown();
+// document.addEventListener("click", (e) => {
+//   if (settingsWrap && !settingsWrap.contains(e.target)) closeSettingsDropdown();
+//   if (socialWrap && !socialWrap.contains(e.target)) closeSocialDropdown();
 
-  // close mobile menu if clicking outside (when open)
-  if (mobileMenu?.classList.contains("is-open")) {
-    const clickedInsideMobile = mobileMenu.contains(e.target);
-    const clickedMenuBtn = (menuBtn && (e.target === menuBtn || menuBtn.contains(e.target)));
-    if (!clickedInsideMobile && !clickedMenuBtn) closeMobileMenu();
-  }
-});
+//   // close mobile menu if clicking outside (when open)
+//   if (mobileMenu?.classList.contains("is-open")) {
+//     const clickedInsideMobile = mobileMenu.contains(e.target);
+//     const clickedMenuBtn = (menuBtn && (e.target === menuBtn || menuBtn.contains(e.target)));
+//     if (!clickedInsideMobile && !clickedMenuBtn) closeMobileMenu();
+//   }
+// });
 
 /* Escape closes all overlays */
 document.addEventListener("keydown", (e) => {
