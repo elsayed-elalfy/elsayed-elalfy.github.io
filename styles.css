@@ -1052,6 +1052,47 @@ html[data-theme="dark"] .settingsPanel .divider{
   border-color: rgba(255,255,255,0.10) !important;
 }
 
+
+/* =====================================
+   Settings Dropdown – Dark Theme Fix
+===================================== */
+
+html[data-theme="dark"] #settingsDropdown{
+  background: rgba(18, 26, 45, 0.95) !important;
+  border: 1px solid rgba(255,255,255,0.15) !important;
+  color: rgba(230,235,255,0.92) !important;
+  box-shadow: 0 20px 45px rgba(0,0,0,0.55) !important;
+}
+
+/* Section titles: "Theme", "Language" */
+html[data-theme="dark"] #settingsDropdown .ddTitle{
+  color: rgba(230,235,255,0.60) !important;
+  font-weight: 700;
+}
+
+/* Divider */
+html[data-theme="dark"] #settingsDropdown .ddDivider{
+  background: rgba(255,255,255,0.10) !important;
+}
+
+/* Options */
+html[data-theme="dark"] #settingsDropdown .ddOption{
+  background: transparent !important;
+  color: rgba(230,235,255,0.88) !important;
+  border: 1px solid transparent !important;
+}
+
+/* Hover */
+html[data-theme="dark"] #settingsDropdown .ddOption:hover{
+  background: rgba(255,255,255,0.08) !important;
+}
+
+/* Active (selected) option */
+html[data-theme="dark"] #settingsDropdown .ddOption.is-active{
+  background: rgba(43,102,255,0.25) !important;
+  border: 1px solid rgba(43,102,255,0.45) !important;
+  color: #ffffff !important;
+}
 /*****************************  */
 
 .ddOption.is-active{
