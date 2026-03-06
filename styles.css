@@ -753,4 +753,11 @@ body{
   color: #0b1b44;
 }
 
+
+.navItem--social .dropdown{
+  display:none;
+}
+.navItem--social.is-open .dropdown{
+  display:block;
+}
 /* social media end  */
