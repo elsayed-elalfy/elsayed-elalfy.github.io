@@ -802,13 +802,30 @@ html[data-theme="dark"] .mobileMenu{
 
 
 
+/* ---------- Stacking (safe, minimal) ---------- */
+.topbar{
+  z-index: 50;              /* sits above page content */
+  position: sticky;         /* already sticky in your file */
+}
 
-/* Ensure header & dropdowns sit above the mobile menu layer */
-.topbar { z-index: 1000; }
-.topbar__inner { position: relative; z-index: 1001; }
+.topbar__inner{
+  position: relative;       /* anchor dropdowns */
+  z-index: 51;
+}
 
-/* Mobile menu should be below dropdowns */
-.mobileMenu { position: relative; z-index: 900; }
+/* Dropdowns appear above the mobile menu panel */
+.dropdown{
+  z-index: 70;
+}
 
-/* Dropdowns should be above everything */
-.dropdown { z-index: 2000; }
+/* ---------- Mobile menu as an overlay panel ---------- */
+@media (max-width: 900px){
+  .mobileMenu{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(100% + 8px);  /* directly under topbar__inner */
+    margin: 0 auto;         /* keep your max-width centering */
+    z-index: 60;            /* below dropdowns, above content */
+  }
+}
