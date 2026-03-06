@@ -118,17 +118,21 @@ body{
 .dropdown::before{
   content:"";
   position:absolute;
-  top:-12px;
+  top:-8px;
   left:0; right:0;
-  height:12px;
+  height:8px;
 }
 
 /* Hover + keyboard support */
 /* .navItem:hover  .dropdown,
 .navItem:focus-within .dropdown{ display:block; } */
 
-.navItem > .dropdown{ display:block; } 
-.navItem:hover > .dropdown{ display:block; } 
+/* Keep dropdown hidden by default */
+.navItem > .dropdown{ display:none; }
+
+/* Show only on hover or keyboard focus */
+.navItem:hover > .dropdown,
+.navItem:focus-within > .dropdown{ display:block; }
 
 
 .dropdown a{
