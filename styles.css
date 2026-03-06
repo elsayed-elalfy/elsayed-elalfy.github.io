@@ -127,12 +127,21 @@ body{
 /* .navItem:hover  .dropdown,
 .navItem:focus-within .dropdown{ display:block; } */
 
-/* Keep dropdown hidden by default */
+/* /* Keep dropdown hidden by default */
 .navItem > .dropdown{ display:none; }
 
 /* Show only on hover or keyboard focus */
 .navItem:hover > .dropdown,
-.navItem:focus-within > .dropdown{ display:block; }
+.navItem:focus-within > .dropdown{ display:block; } */
+
+/* Default hidden */
+.navItem > .dropdown { display: none; }
+
+/* Open on hover */
+.navItem:hover > .dropdown { display: block; }
+
+/* Open for keyboard navigation only */
+.navItem > .nav__link--parent:focus-visible + .dropdown { display: block; }
 
 
 .dropdown a{
