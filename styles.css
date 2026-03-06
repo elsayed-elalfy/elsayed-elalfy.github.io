@@ -135,13 +135,13 @@ body{
 .navItem:focus-within > .dropdown{ display:block; } */
 
 /* Default hidden */
-.navItem > .dropdown { display: none; }
+.navItem  .dropdown { display: none; }
 
 /* Open on hover */
-.navItem:hover > .dropdown { display: block; }
+.navItem:hover  .dropdown { display: block; }
 
 /* Open for keyboard navigation only */
-.navItem > .nav__link--parent:focus-visible + .dropdown { display: block; }
+.navItem  .nav__link--parent:focus-visible + .dropdown { display: block; }
 
 
 .dropdown a{
