@@ -159,6 +159,18 @@ const HOME_HIGHLIGHTS = [
     text: "ML for Smart Mobility in MATLAB",
     link: "https://events.kfupm.edu.sa/event/247/page/416-workshops",
   },
+  {
+    img: "assets/highlights/jdim.jpg",
+    title: "Editor-in-Chief",
+    text: "Journal of Data, Information and Management, Springer",
+    link: "https://link.springer.com/journal/42488",
+  },
+  {
+    img: "assets/highlights/iconip2026.png",
+    title: "Tutorial and Workshop Co-Chair",
+    text: "33rd International Conference on Neural Information Processing, Melbourne, 23-27 Nov. 2026",
+    link: "https://www.iconip2026.org/",
+  },
 ];
 
 let hlIndex = 0;
