@@ -417,6 +417,35 @@ renderRoute();
 /* =========================
    Desktop dropdowns: Settings + Social
 ========================= */
+// (function dropdownWiring() {
+//   const settingsBtn = document.getElementById("settingsBtn");
+//   const settingsWrap = settingsBtn?.closest(".navItem--settings");
+
+//   const socialBtn = document.getElementById("socialBtn");
+//   const socialWrap = socialBtn?.closest(".navItem--social");
+
+//   function closeAll() {
+//     settingsWrap?.classList.remove("is-open");
+//     socialWrap?.classList.remove("is-open");
+//     settingsBtn?.setAttribute("aria-expanded", "false");
+//     socialBtn?.setAttribute("aria-expanded", "false");
+//   }
+
+//   function toggleWrap(btn, wrap) {
+//     if (!btn || !wrap) return;
+//     const open = wrap.classList.toggle("is-open");
+//     btn.setAttribute("aria-expanded", open ? "true" : "false");
+//   }
+
+//   settingsBtn?.addEventListener("click", (e) => {
+//     e.preventDefault();
+//     e.stopPropagation();
+//     // close other
+//     socialWrap?.classList.remove("is-open");
+//     socialBtn?.setAttribute("aria-expanded", "false");
+//     toggleWrap(settingsBtn, settingsWrap);
+//   });
+
 (function dropdownWiring() {
   const settingsBtn = document.getElementById("settingsBtn");
   const settingsWrap = settingsBtn?.closest(".navItem--settings");
@@ -440,11 +469,37 @@ renderRoute();
   settingsBtn?.addEventListener("click", (e) => {
     e.preventDefault();
     e.stopPropagation();
+
+    // ✅ IMPORTANT: if mobile menu is open, close it first
+    closeMobileMenu();
+
     // close other
     socialWrap?.classList.remove("is-open");
     socialBtn?.setAttribute("aria-expanded", "false");
+
     toggleWrap(settingsBtn, settingsWrap);
   });
+
+  socialBtn?.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    // ✅ IMPORTANT: if mobile menu is open, close it first
+    closeMobileMenu();
+
+    // close other
+    settingsWrap?.classList.remove("is-open");
+    settingsBtn?.setAttribute("aria-expanded", "false");
+
+    toggleWrap(socialBtn, socialWrap);
+  });
+
+  document.addEventListener("click", () => closeAll());
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeAll();
+  });
+})();
+
 
   socialBtn?.addEventListener("click", (e) => {
     e.preventDefault();
