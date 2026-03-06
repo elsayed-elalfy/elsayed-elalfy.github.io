@@ -549,5 +549,24 @@ body{
 }
 
 
+/* =========================
+   Mobile Menu Font Scaling
+========================= */
+@media (max-width: 900px){
 
+  .nav--mobile .nav__link{
+    font-size: 0.82rem;
+    font-weight: 600;
+  }
+
+  .mobileGroup summary{
+    font-size: 0.84rem;
+    font-weight: 700;
+  }
+
+  .mobileSubLink{
+    font-size: 0.78rem;
+    font-weight: 600;
+  }
+}
 
